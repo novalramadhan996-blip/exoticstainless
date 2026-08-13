@@ -2,44 +2,19 @@ import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { PRODUCTS, type Product } from "@/lib/site-data";
+import { PRODUCTS, type Product } from "@/lib/product-catalog";
 import { BrochureDownload } from "./BrochureDownload";
 import { Reveal } from "./motion-primitives";
 import { SectionHeading } from "./SectionHeading";
 
-const projectImages = import.meta.glob("@/assets/project-samples/*.{webp,jpg,jpeg,png}", {
-  eager: true,
-  import: "default",
-}) as Record<string, string>;
-
-const sampleImages = Object.entries(projectImages)
-  .sort(([a], [b]) => {
-    const numA = Number(a.match(/project-(\d+)/)?.[1] ?? 999);
-    const numB = Number(b.match(/project-(\d+)/)?.[1] ?? 999);
-    return numA - numB;
-  })
-  .map(([, src]) => src);
-
-function getProductImage(product: Product, index: number) {
-  return sampleImages[index] ?? product.image;
-}
-
-export function ProductCard({
-  product,
-  index = 0,
-}: {
-  product: Product;
-  index?: number;
-}) {
-  const image = getProductImage(product, index);
-
+export function ProductCard({ product, index = 0 }: { product: Product; index?: number }) {
   return (
     <Reveal delay={(index % 3) * 0.08}>
       <div className="group h-full overflow-hidden rounded-2xl border border-border bg-card shadow-soft transition-shadow hover:shadow-elevated">
         <div className="aspect-[4/3] overflow-hidden">
           <img
-            src={image}
-            alt={`${product.title} stainless steel hasil fabrikasi Master Stainless`}
+            src={product.image}
+            alt={`${product.title} — hasil fabrikasi Master Stainless`}
             width={800}
             height={600}
             loading="lazy"
@@ -48,12 +23,9 @@ export function ProductCard({
             className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
           />
         </div>
-
         <div className="p-6">
           <h3 className="text-lg font-bold text-foreground">{product.title}</h3>
-          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-            {product.description}
-          </p>
+          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{product.description}</p>
           <Link
             to="/produk/$slug"
             params={{ slug: product.slug }}
@@ -77,12 +49,12 @@ export function Products({ limit }: { limit?: number }) {
         <SectionHeading
           eyebrow="Produk Kami"
           title="Pagar, Railing, dan Solusi Stainless Steel Custom"
-          description="Master Stainless menghadirkan berbagai produk stainless steel berkualitas tinggi, mulai dari pagar, railing tangga, railing balkon, pintu, hingga kebutuhan custom untuk hunian dan bangunan komersial."
+          description="Produk stainless steel Master Stainless untuk pagar, pintu, railing tangga, railing balkon, dan kebutuhan fabrikasi custom untuk hunian maupun bangunan komersial."
         />
 
         <motion.div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {items.map((product, i) => (
-            <ProductCard key={product.title} product={product} index={i} />
+            <ProductCard key={product.slug} product={product} index={i} />
           ))}
         </motion.div>
 
