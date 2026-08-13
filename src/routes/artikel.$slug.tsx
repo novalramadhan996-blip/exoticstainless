@@ -5,7 +5,7 @@ import { PageHeader } from "@/components/site/PageHeader";
 import { Reveal } from "@/components/site/motion-primitives";
 import { BLOG, type BlogPost } from "@/lib/site-data";
 
-const SITE = "https://meta-craft-pro.lovable.app";
+const SITE = "https://masterstainless.com";
 
 export const Route = createFileRoute("/artikel/$slug")({
   loader: ({ params }) => {

@@ -6,7 +6,7 @@ import { ProductCard } from "@/components/site/Products";
 import { Reveal } from "@/components/site/motion-primitives";
 import { PRODUCTS, type Product } from "@/lib/site-data";
 
-const SITE = "https://meta-craft-pro.lovable.app";
+const SITE = "https://masterstainless.com";
 
 export const Route = createFileRoute("/produk/$slug")({
   loader: ({ params }) => {

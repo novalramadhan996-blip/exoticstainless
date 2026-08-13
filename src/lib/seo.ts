@@ -1,6 +1,6 @@
-export const SITE_URL = "https://meta-craft-pro.lovable.app";
+export const SITE_URL = "https://masterstainless.com";
 
-/** Ubah path aset lokal (mis. /assets/hero-abc123.jpg) menjadi URL absolut untuk OG/Twitter. */
+/** Ubah path aset lokal menjadi URL absolut untuk SEO/social cards. */
 export function absoluteUrl(pathOrUrl: string) {
   if (/^https?:\/\//.test(pathOrUrl)) return pathOrUrl;
   return `${SITE_URL}${pathOrUrl.startsWith("/") ? "" : "/"}${pathOrUrl}`;
