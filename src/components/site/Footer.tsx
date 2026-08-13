@@ -1,19 +1,8 @@
 import { Link } from "@tanstack/react-router";
-import {
-  Facebook,
-  Instagram,
-  Linkedin,
-  Mail,
-  MapPin,
-  Phone,
-  Twitter,
-  Youtube,
-} from "lucide-react";
-import { useState } from "react";
+import { Mail, MapPin, Phone, MessageCircle, Clock } from "lucide-react";
 
 import logoMark from "@/assets/master-stainless-mark.png";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { COMPANY } from "@/lib/site-data";
 
 type FooterLink = {
@@ -23,67 +12,64 @@ type FooterLink = {
   hash?: string;
 };
 
-const columns: { title: string; links: FooterLink[] }[] = [
-  {
-    title: "Perusahaan",
-    links: [
-      { label: "Beranda", to: "/" },
-      { label: "Tentang Kami", to: "/about" },
-      { label: "Proyek", to: "/projects" },
-      { label: "Galeri", to: "/gallery" },
-      { label: "Kontak", to: "/contact" },
-    ],
-  },
-  {
-    title: "Produk",
-    links: [
-      { label: "Semua Produk", to: "/products" },
-      {
-        label: "Peralatan Dapur",
-        to: "/produk/$slug",
-        params: { slug: "peralatan-dapur" },
-      },
-      {
-        label: "Peralatan Rumah Sakit",
-        to: "/produk/$slug",
-        params: { slug: "peralatan-rumah-sakit" },
-      },
-      {
-        label: "Peralatan Laboratorium",
-        to: "/produk/$slug",
-        params: { slug: "peralatan-laboratorium" },
-      },
-      {
-        label: "Penyimpanan Industri",
-        to: "/produk/$slug",
-        params: { slug: "penyimpanan-industri" },
-      },
-      {
-        label: "Produk Kustom",
-        to: "/produk/$slug",
-        params: { slug: "produk-kustom" },
-      },
-    ],
-  },
-  {
-    title: "Layanan",
-    links: [
-      { label: "Fabrikasi Kustom", to: "/", hash: "services" },
-      { label: "Pemotongan Laser", to: "/", hash: "services" },
-      { label: "Pengelasan Presisi", to: "/", hash: "services" },
-      { label: "Instalasi & Perawatan", to: "/", hash: "services" },
-      { label: "Artikel & Wawasan", to: "/", hash: "blog" },
-    ],
-  },
+const companyLinks: FooterLink[] = [
+  { label: "Beranda", to: "/" },
+  { label: "Tentang Kami", to: "/about" },
+  { label: "Produk", to: "/products" },
+  { label: "Proyek", to: "/projects" },
+  { label: "Galeri", to: "/gallery" },
+  { label: "Kontak", to: "/contact" },
 ];
 
+const productLinks: FooterLink[] = [
+  { label: "Pagar Stainless Steel", to: "/produk/$slug", params: { slug: "pagar-stainless-steel" } },
+  { label: "Pagar & Pintu Stainless", to: "/produk/$slug", params: { slug: "pagar-dan-pintu-stainless" } },
+  { label: "Pagar Minimalis", to: "/produk/$slug", params: { slug: "pagar-minimalis-stainless" } },
+  { label: "Railing Tangga", to: "/produk/$slug", params: { slug: "railing-tangga-stainless" } },
+  { label: "Railing Balkon", to: "/produk/$slug", params: { slug: "railing-balkon-stainless" } },
+  { label: "Produk Custom", to: "/produk/$slug", params: { slug: "pagar-stainless-custom" } },
+];
+
+const serviceLinks: FooterLink[] = [
+  { label: "Fabrikasi Kustom", to: "/", hash: "services" },
+  { label: "Pemotongan & Fabrikasi", to: "/", hash: "services" },
+  { label: "Pengelasan Presisi", to: "/", hash: "services" },
+  { label: "Instalasi di Lokasi", to: "/", hash: "services" },
+  { label: "Konsultasi Proyek", to: "/contact" },
+];
+
+function FooterColumn({ title, links }: { title: string; links: FooterLink[] }) {
+  return (
+    <nav aria-label={title}>
+      <h4 className="text-sm font-bold uppercase tracking-wider text-primary-foreground">
+        {title}
+      </h4>
+      <ul className="mt-4 space-y-3">
+        {links.map((link) => (
+          <li key={link.label}>
+            <Link
+              to={link.to}
+              {...(link.params ? { params: link.params } : {})}
+              {...(link.hash ? { hash: link.hash } : {})}
+              className="text-sm text-primary-foreground/60 transition-colors hover:text-accent"
+            >
+              {link.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+}
+
 export function Footer() {
-  const [email, setEmail] = useState("");
+  const whatsappUrl = `https://wa.me/${COMPANY.whatsapp}`;
+  const mapsUrl = COMPANY.mapsUrl;
 
   return (
     <footer className="bg-footer text-primary-foreground">
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr_1.6fr]">
+      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+        <div className="grid gap-12 lg:grid-cols-[1.45fr_1fr_1fr_1.45fr]">
           {/* BRAND */}
           <div>
             <Link
@@ -94,142 +80,106 @@ export function Footer() {
               <img
                 src={logoMark}
                 alt={`Logo ${COMPANY.name}`}
-                className="h-14 w-14 object-contain drop-shadow"
+                className="h-14 w-14 object-contain"
                 loading="lazy"
                 decoding="async"
               />
-
               <span className="text-xl font-extrabold tracking-tight">
-                Master
-                <span className="text-accent"> Stainless</span>
+                Master<span className="text-accent"> Stainless</span>
               </span>
             </Link>
 
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-primary-foreground/60">
-              Merekayasa solusi stainless steel premium yang dibangun untuk
-              performa dan dirancang untuk presisi.
+            <p className="mt-5 max-w-sm text-sm leading-relaxed text-primary-foreground/60">
+              Spesialis fabrikasi stainless steel custom untuk pagar, railing,
+              perlengkapan komersial, dan kebutuhan proyek dengan pengerjaan
+              yang rapi dan presisi.
             </p>
 
-            {/* SOCIAL MEDIA */}
-            <div className="mt-6 flex gap-3">
-              {[Facebook, Twitter, Instagram, Linkedin, Youtube].map(
-                (Icon, i) => (
-                  <a
-                    key={i}
-                    href="#"
-                    aria-label="Tautan media sosial"
-                    className="grid h-9 w-9 place-items-center rounded-lg bg-primary-foreground/10 transition-colors hover:bg-accent hover:text-primary"
-                  >
-                    <Icon className="h-4 w-4" />
-                  </a>
-                ),
-              )}
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Button asChild variant="gold" size="sm">
+                <a href={whatsappUrl} target="_blank" rel="noreferrer">
+                  <MessageCircle className="mr-2 h-4 w-4" />
+                  Konsultasi WhatsApp
+                </a>
+              </Button>
+              <Button asChild variant="outline" size="sm" className="border-primary-foreground/20 bg-transparent text-primary-foreground hover:bg-primary-foreground/10">
+                <Link to="/contact">Minta Penawaran</Link>
+              </Button>
             </div>
           </div>
 
-          {/* FOOTER NAVIGATION */}
-          {columns.map((col) => (
-            <nav key={col.title} aria-label={col.title}>
-              <h4 className="text-sm font-bold uppercase tracking-wider text-primary-foreground">
-                {col.title}
-              </h4>
+          <FooterColumn title="Perusahaan" links={companyLinks} />
+          <FooterColumn title="Produk" links={productLinks} />
 
-              <ul className="mt-4 space-y-3">
-                {col.links.map((link) => (
-                  <li key={link.label}>
-                    <Link
-                      to={link.to}
-                      {...(link.params ? { params: link.params } : {})}
-                      {...(link.hash ? { hash: link.hash } : {})}
-                      className="text-sm text-primary-foreground/60 transition-colors hover:text-accent"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          ))}
-
-          {/* NEWSLETTER + CONTACT */}
+          {/* CONTACT */}
           <div>
-            <h4 className="text-sm font-bold uppercase tracking-wider">
-              Buletin
+            <h4 className="text-sm font-bold uppercase tracking-wider text-primary-foreground">
+              Hubungi Kami
             </h4>
 
-            <p className="mt-4 text-sm text-primary-foreground/60">
-              Dapatkan wawasan industri dan pembaruan proyek langsung ke email
-              Anda.
-            </p>
-
-            <form
-              className="mt-4 flex gap-2"
-              onSubmit={(e) => {
-                e.preventDefault();
-                setEmail("");
-              }}
-            >
-              <Input
-                type="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Email Anda"
-                className="border-primary-foreground/20 bg-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/40"
-              />
-
-              <Button type="submit" variant="gold">
-                Gabung
-              </Button>
-            </form>
-
-            <ul className="mt-6 space-y-3 text-sm text-primary-foreground/60">
-              {/* PHONE */}
+            <ul className="mt-4 space-y-4 text-sm text-primary-foreground/60">
               <li>
                 <a
                   href={`tel:${COMPANY.phone.replace(/\s|-/g, "")}`}
-                  className="flex items-center gap-2 hover:text-accent"
+                  className="flex items-start gap-3 transition-colors hover:text-accent"
                 >
-                  <Phone className="h-4 w-4 text-accent" />
-                  {COMPANY.phone}
+                  <Phone className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                  <span>
+                    <span className="block text-xs text-primary-foreground/40">Telepon</span>
+                    {COMPANY.phone}
+                  </span>
                 </a>
               </li>
 
-              {/* EMAIL */}
               <li>
                 <a
                   href={`mailto:${COMPANY.email}`}
-                  className="flex items-center gap-2 hover:text-accent"
+                  className="flex items-start gap-3 transition-colors hover:text-accent"
                 >
-                  <Mail className="h-4 w-4 text-accent" />
-                  {COMPANY.email}
+                  <Mail className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                  <span>
+                    <span className="block text-xs text-primary-foreground/40">Email</span>
+                    {COMPANY.email}
+                  </span>
                 </a>
               </li>
 
-              {/* ADDRESS */}
-              <li className="flex items-start gap-2">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
-                {COMPANY.office}
+              <li>
+                <a
+                  href={mapsUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-start gap-3 transition-colors hover:text-accent"
+                >
+                  <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                  <span>
+                    <span className="block text-xs text-primary-foreground/40">Workshop / Office</span>
+                    {COMPANY.office}
+                  </span>
+                </a>
+              </li>
+
+              <li className="flex items-start gap-3">
+                <Clock className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                <span>
+                  <span className="block text-xs text-primary-foreground/40">Jam Operasional</span>
+                  {COMPANY.hours}
+                </span>
               </li>
             </ul>
+
+            <div className="mt-6 border-t border-primary-foreground/10 pt-5">
+              <FooterColumn title="Layanan" links={serviceLinks} />
+            </div>
           </div>
         </div>
 
-        {/* COPYRIGHT */}
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-primary-foreground/10 pt-6 text-sm text-primary-foreground/50 sm:flex-row">
+        {/* BOTTOM BAR */}
+        <div className="mt-12 flex flex-col gap-3 border-t border-primary-foreground/10 pt-6 text-sm text-primary-foreground/50 sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {new Date().getFullYear()} {COMPANY.name}. Semua hak dilindungi.
           </p>
-
-          <div className="flex gap-6">
-            <Link to="/contact" className="hover:text-accent">
-              Kebijakan Privasi
-            </Link>
-
-            <Link to="/contact" className="hover:text-accent">
-              Syarat Layanan
-            </Link>
-          </div>
+          <p>Fabrikasi Stainless Steel · Bekasi, Jawa Barat</p>
         </div>
       </div>
     </footer>
