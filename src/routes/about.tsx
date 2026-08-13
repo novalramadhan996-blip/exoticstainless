@@ -46,8 +46,8 @@ function AboutPage() {
       />
       <About />
       <Stats />
-      <WhyChooseUs />
       <Process />
+      <WhyChooseUs />
       <Certifications />
     </>
   );
