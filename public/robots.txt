@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://meta-craft-pro.lovable.app/sitemap.xml
+Sitemap: https://masterstainless.com/sitemap.xml
