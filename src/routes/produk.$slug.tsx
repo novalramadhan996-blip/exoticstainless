@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { PageHeader } from "@/components/site/PageHeader";
 import { ProductCard } from "@/components/site/Products";
 import { Reveal } from "@/components/site/motion-primitives";
-import { PRODUCTS, type Product } from "@/lib/site-data";
+import { PRODUCTS, type Product } from "@/lib/product-catalog";
 
 const SITE = "https://masterstainless.com";
 
@@ -16,12 +16,7 @@ export const Route = createFileRoute("/produk/$slug")({
   },
   head: ({ params, loaderData }) => {
     if (!loaderData) {
-      return {
-        meta: [
-          { title: "Produk Tidak Ditemukan — Master Stainless" },
-          { name: "robots", content: "noindex" },
-        ],
-      };
+      return { meta: [{ title: "Produk Tidak Ditemukan — Master Stainless" }, { name: "robots", content: "noindex" }] };
     }
     const { product } = loaderData;
     const title = `${product.title} — Master Stainless`;
@@ -42,56 +37,47 @@ export const Route = createFileRoute("/produk/$slug")({
         { name: "twitter:image", content: image },
       ],
       links: [{ rel: "canonical", href: url }],
-      scripts: [
-        {
-          type: "application/ld+json",
-          children: JSON.stringify({
-            "@context": "https://schema.org",
-            "@graph": [
-              {
-                "@type": "Product",
-                "@id": `${url}#product`,
-                name: product.title,
-                description: product.intro,
-                image: [image],
-                url,
-                sku: params.slug,
-                category: "Fabrikasi Stainless Steel",
-                brand: { "@type": "Brand", name: "Master Stainless" },
-                manufacturer: { "@type": "Organization", name: "Master Stainless", url: SITE },
-                additionalProperty: product.specs.map((s) => ({
-                  "@type": "PropertyValue",
-                  name: s.label,
-                  value: s.value,
-                })),
-              },
-              {
-                "@type": "BreadcrumbList",
-                itemListElement: [
-                  { "@type": "ListItem", position: 1, name: "Beranda", item: SITE },
-                  { "@type": "ListItem", position: 2, name: "Produk", item: `${SITE}/products` },
-                  { "@type": "ListItem", position: 3, name: product.title, item: url },
-                ],
-              },
-            ],
-          }),
-        },
-      ],
+      scripts: [{
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Product",
+              "@id": `${url}#product`,
+              name: product.title,
+              description: product.intro,
+              image: [image],
+              url,
+              sku: params.slug,
+              category: "Fabrikasi Stainless Steel",
+              brand: { "@type": "Brand", name: "Master Stainless" },
+              manufacturer: { "@type": "Organization", name: "Master Stainless", url: SITE },
+              additionalProperty: product.specs.map((s) => ({ "@type": "PropertyValue", name: s.label, value: s.value })),
+            },
+            {
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                { "@type": "ListItem", position: 1, name: "Beranda", item: SITE },
+                { "@type": "ListItem", position: 2, name: "Produk", item: `${SITE}/products` },
+                { "@type": "ListItem", position: 3, name: product.title, item: url },
+              ],
+            },
+          ],
+        }),
+      }],
     };
   },
   notFoundComponent: ProductNotFound,
   component: ProductDetail,
 });
 
-
 function ProductNotFound() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-40 text-center">
       <h1 className="text-3xl font-extrabold text-foreground">Produk tidak ditemukan</h1>
       <p className="mt-3 text-muted-foreground">Produk yang Anda cari mungkin sudah diganti namanya.</p>
-      <Button asChild variant="gold" className="mt-8">
-        <Link to="/products">Lihat Semua Produk</Link>
-      </Button>
+      <Button asChild variant="gold" className="mt-8"><Link to="/products">Lihat Semua Produk</Link></Button>
     </div>
   );
 }
@@ -104,13 +90,9 @@ function ProductDetail() {
   return (
     <>
       <PageHeader eyebrow="Produk" title={product.title} subtitle={product.description} />
-
       <section className="bg-background py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Link
-            to="/products"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-accent transition-colors hover:text-primary"
-          >
+          <Link to="/products" className="inline-flex items-center gap-2 text-sm font-semibold text-accent transition-colors hover:text-primary">
             <ArrowLeft className="h-4 w-4" /> Kembali ke Produk
           </Link>
 
@@ -132,24 +114,15 @@ function ProductDetail() {
               </figure>
             </Reveal>
 
-
             <Reveal delay={0.1}>
               <div>
                 <p className="text-lg font-medium leading-relaxed text-foreground">{product.intro}</p>
                 <div className="mt-6 space-y-4 text-base leading-relaxed text-muted-foreground">
-                  {product.body.map((p) => (
-                    <p key={p}>{p}</p>
-                  ))}
+                  {product.body.map((p) => <p key={p}>{p}</p>)}
                 </div>
                 <div className="mt-8 flex flex-wrap gap-3">
-                  <Button asChild variant="gold" size="lg">
-                    <Link to="/contact">
-                      Minta Penawaran <ArrowRight className="h-4 w-4" />
-                    </Link>
-                  </Button>
-                  <Button asChild variant="outline" size="lg">
-                    <Link to="/projects">Lihat Proyek Terkait</Link>
-                  </Button>
+                  <Button asChild variant="gold" size="lg"><Link to="/contact">Minta Penawaran <ArrowRight className="h-4 w-4" /></Link></Button>
+                  <Button asChild variant="outline" size="lg"><Link to="/projects">Lihat Proyek Terkait</Link></Button>
                 </div>
               </div>
             </Reveal>
@@ -162,9 +135,7 @@ function ProductDetail() {
                 <ul className="mt-5 space-y-3">
                   {product.features.map((f) => (
                     <li key={f} className="flex items-start gap-3 text-sm text-muted-foreground">
-                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent/15 text-accent">
-                        <Check className="h-3 w-3" />
-                      </span>
+                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent/15 text-accent"><Check className="h-3 w-3" /></span>
                       {f}
                     </li>
                   ))}
@@ -189,9 +160,7 @@ function ProductDetail() {
           <div className="mt-20">
             <h2 className="text-2xl font-extrabold text-foreground">Produk Lainnya</h2>
             <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {related.map((p, i) => (
-                <ProductCard key={p.slug} product={p} index={i} />
-              ))}
+              {related.map((p, i) => <ProductCard key={p.slug} product={p} index={i} />)}
             </div>
           </div>
         </div>
