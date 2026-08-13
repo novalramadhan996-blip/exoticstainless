@@ -2,9 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader } from "@/components/site/PageHeader";
 import { About } from "@/components/site/About";
 import { Stats } from "@/components/site/Stats";
+import { Process } from "@/components/site/Process";
 import { WhyChooseUs } from "@/components/site/WhyChooseUs";
 import { Certifications } from "@/components/site/Certifications";
-import { Process } from "@/components/site/Process";
 import { SITE_URL, absoluteUrl } from "@/lib/seo";
 import factoryImg from "@/assets/factory.jpg";
 
@@ -17,13 +17,17 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "Lebih dari dua dekade keahlian stainless steel. Pelajari misi, visi, tim, dan standar produksi bersertifikat Master Stainless.",
+          "Mengenal Master Stainless, penyedia solusi fabrikasi stainless steel untuk kebutuhan komersial, industri, hospitality, kesehatan, dan proyek custom.",
       },
       { property: "og:title", content: "Tentang Kami — Master Stainless" },
-      { property: "og:description", content: "Stainless steel presisi, dirancang untuk tahan lama." },
+      {
+        property: "og:description",
+        content:
+          "Solusi fabrikasi stainless steel dengan pengerjaan presisi, rapi, dan disesuaikan dengan kebutuhan proyek.",
+      },
       { property: "og:url", content: `${SITE_URL}/about` },
       { property: "og:image", content: OG_IMAGE },
-      { property: "og:image:alt", content: "Lantai pabrik fabrikasi stainless steel Master Stainless" },
+      { property: "og:image:alt", content: "Fasilitas dan pekerjaan fabrikasi stainless steel Master Stainless" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: OG_IMAGE },
     ],
@@ -36,14 +40,14 @@ function AboutPage() {
   return (
     <>
       <PageHeader
-        eyebrow="Tentang Master Stainless"
-        title="Dua Dekade Keunggulan Stainless Steel"
-        subtitle="Mitra manufaktur tepercaya yang memadukan keahlian tingkat tinggi dengan mesin canggih."
+        eyebrow="Tentang Kami"
+        title="Solusi Fabrikasi Stainless Steel untuk Berbagai Kebutuhan"
+        subtitle="Kami membantu mewujudkan kebutuhan stainless steel dari konsultasi dan pengukuran hingga proses fabrikasi dan pemasangan."
       />
       <About />
       <Stats />
-      <Process />
       <WhyChooseUs />
+      <Process />
       <Certifications />
     </>
   );
