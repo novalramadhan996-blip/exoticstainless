@@ -7,14 +7,39 @@ import { BrochureDownload } from "./BrochureDownload";
 import { Reveal } from "./motion-primitives";
 import { SectionHeading } from "./SectionHeading";
 
-export function ProductCard({ product, index = 0 }: { product: Product; index?: number }) {
+const projectImages = import.meta.glob("@/assets/project-samples/*.{webp,jpg,jpeg,png}", {
+  eager: true,
+  import: "default",
+}) as Record<string, string>;
+
+const sampleImages = Object.entries(projectImages)
+  .sort(([a], [b]) => {
+    const numA = Number(a.match(/project-(\d+)/)?.[1] ?? 999);
+    const numB = Number(b.match(/project-(\d+)/)?.[1] ?? 999);
+    return numA - numB;
+  })
+  .map(([, src]) => src);
+
+function getProductImage(product: Product, index: number) {
+  return sampleImages[index] ?? product.image;
+}
+
+export function ProductCard({
+  product,
+  index = 0,
+}: {
+  product: Product;
+  index?: number;
+}) {
+  const image = getProductImage(product, index);
+
   return (
     <Reveal delay={(index % 3) * 0.08}>
       <div className="group h-full overflow-hidden rounded-2xl border border-border bg-card shadow-soft transition-shadow hover:shadow-elevated">
         <div className="aspect-[4/3] overflow-hidden">
           <img
-            src={product.image}
-            alt={`${product.title} stainless steel food grade hasil fabrikasi Master Stainless — ${product.description}`}
+            src={image}
+            alt={`${product.title} stainless steel hasil fabrikasi Master Stainless`}
             width={800}
             height={600}
             loading="lazy"
@@ -26,7 +51,9 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
 
         <div className="p-6">
           <h3 className="text-lg font-bold text-foreground">{product.title}</h3>
-          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{product.description}</p>
+          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+            {product.description}
+          </p>
           <Link
             to="/produk/$slug"
             params={{ slug: product.slug }}
@@ -35,7 +62,6 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
             Lihat Detail
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
-
         </div>
       </div>
     </Reveal>
@@ -44,19 +70,22 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
 
 export function Products({ limit }: { limit?: number }) {
   const items = limit ? PRODUCTS.slice(0, limit) : PRODUCTS;
+
   return (
     <section id="products" className="scroll-mt-20 bg-background py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Produk Kami"
-          title="Direkayasa untuk Setiap Lingkungan"
-          description="Produk stainless steel premium yang dirancang dan diproduksi untuk memenuhi tuntutan terberat."
+          title="Pagar, Railing, dan Solusi Stainless Steel Custom"
+          description="Master Stainless menghadirkan berbagai produk stainless steel berkualitas tinggi, mulai dari pagar, railing tangga, railing balkon, pintu, hingga kebutuhan custom untuk hunian dan bangunan komersial."
         />
+
         <motion.div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {items.map((product, i) => (
             <ProductCard key={product.title} product={product} index={i} />
           ))}
         </motion.div>
+
         <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
           {limit && (
             <Button asChild variant="gold" size="lg">
