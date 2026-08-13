@@ -8,7 +8,6 @@ import { Process } from "@/components/site/Process";
 import { Stats } from "@/components/site/Stats";
 import { Projects } from "@/components/site/Projects";
 import { Industries } from "@/components/site/Industries";
-import { Testimonials } from "@/components/site/Testimonials";
 import { Certifications } from "@/components/site/Certifications";
 import { Blog } from "@/components/site/Blog";
 import { FAQ } from "@/components/site/FAQ";
@@ -55,7 +54,6 @@ function Home() {
       <Stats />
       <Projects />
       <Industries />
-      <Testimonials />
       <Certifications />
       <Blog />
       <FAQ />
