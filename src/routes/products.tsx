@@ -4,9 +4,9 @@ import { Products } from "@/components/site/Products";
 import { Industries } from "@/components/site/Industries";
 import { Contact } from "@/components/site/Contact";
 import { SITE_URL, absoluteUrl } from "@/lib/seo";
-import kitchenImg from "@/assets/product-kitchen.jpg";
+import project1Img from "@/assets/project-samples/project-1.webp";
 
-const OG_IMAGE = absoluteUrl(kitchenImg);
+const OG_IMAGE = absoluteUrl(project1Img);
 
 export const Route = createFileRoute("/products")({
   head: () => ({
@@ -15,13 +15,13 @@ export const Route = createFileRoute("/products")({
       {
         name: "description",
         content:
-          "Produk stainless steel premium: peralatan dapur, rumah sakit, dan laboratorium, penyimpanan industri, pegangan tangan, meja kerja, dan fabrikasi kustom.",
+          "Produk stainless steel custom Master Stainless: pagar, pintu, railing tangga, railing balkon, dan solusi fabrikasi untuk hunian serta bangunan komersial.",
       },
       { property: "og:title", content: "Produk — Master Stainless" },
-      { property: "og:description", content: "Produk stainless steel yang direkayasa untuk setiap lingkungan." },
+      { property: "og:description", content: "Pagar, railing, pintu, dan solusi stainless steel custom yang dibuat sesuai kebutuhan proyek." },
       { property: "og:url", content: `${SITE_URL}/products` },
       { property: "og:image", content: OG_IMAGE },
-      { property: "og:image:alt", content: "Peralatan dapur stainless steel food grade Master Stainless" },
+      { property: "og:image:alt", content: "Pagar stainless steel hasil fabrikasi Master Stainless" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: OG_IMAGE },
     ],
@@ -35,8 +35,8 @@ function ProductsPage() {
     <>
       <PageHeader
         eyebrow="Produk Kami"
-        title="Produk Stainless Steel"
-        subtitle="Dirancang dan diproduksi untuk memenuhi tuntutan terberat di setiap industri."
+        title="Pagar, Railing, dan Stainless Steel Custom"
+        subtitle="Dibuat berdasarkan ukuran, desain, dan kebutuhan proyek Anda."
       />
       <Products />
       <Industries />
