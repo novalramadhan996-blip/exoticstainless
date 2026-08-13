@@ -4,10 +4,10 @@ import { SectionHeading } from "./SectionHeading";
 import factoryImg from "@/assets/factory.jpg";
 
 const features = [
-  { icon: CheckCircle2, label: "Material Bersertifikat" },
-  { icon: Users, label: "Tim Profesional" },
-  { icon: Cog, label: "Mesin Canggih" },
-  { icon: Timer, label: "Produksi Cepat" },
+  { icon: CheckCircle2, label: "Pengerjaan Rapi" },
+  { icon: Users, label: "Tim Berpengalaman" },
+  { icon: Cog, label: "Pengerjaan Custom" },
+  { icon: Timer, label: "Proses Terukur" },
 ];
 
 export function About() {
@@ -20,7 +20,7 @@ export function About() {
               <div className="overflow-hidden rounded-3xl shadow-elevated">
                 <img
                   src={factoryImg}
-                  alt="Lantai pabrik fabrikasi stainless steel"
+                  alt="Pekerjaan fabrikasi stainless steel Master Stainless"
                   width={1024}
                   height={1024}
                   loading="lazy"
@@ -28,8 +28,8 @@ export function About() {
                 />
               </div>
               <div className="absolute -bottom-6 -right-4 hidden rounded-2xl bg-gradient-gold px-6 py-5 shadow-gold sm:block">
-                <p className="text-3xl font-extrabold text-primary">20+</p>
-                <p className="text-sm font-medium text-primary/80">Tahun Keunggulan</p>
+                <p className="text-3xl font-extrabold text-primary">Custom</p>
+                <p className="text-sm font-medium text-primary/80">Sesuai Kebutuhan Proyek</p>
               </div>
             </div>
           </Reveal>
@@ -38,8 +38,8 @@ export function About() {
             <SectionHeading
               align="left"
               eyebrow="Tentang Master Stainless"
-              title="Stainless Steel Presisi, Dirancang untuk Tahan Lama"
-              description="Selama lebih dari dua dekade kami bermitra dengan merek terkemuka di sektor kesehatan, perhotelan, dan industri — memadukan keahlian tingkat tinggi dengan mesin canggih untuk menghadirkan solusi stainless steel yang sempurna."
+              title="Mengerjakan Stainless Steel Sesuai Kebutuhan"
+              description="Master Stainless melayani kebutuhan fabrikasi stainless steel untuk berbagai lingkungan kerja dan jenis proyek. Kami mengutamakan fungsi, kekuatan, kerapian finishing, serta kesesuaian ukuran dengan kondisi di lapangan."
             />
 
             <div className="mt-8 grid gap-6 sm:grid-cols-2">
@@ -47,11 +47,10 @@ export function About() {
                 <div className="rounded-2xl border border-border bg-surface p-5 shadow-soft">
                   <div className="flex items-center gap-2 text-accent">
                     <Target className="h-5 w-5" />
-                    <h3 className="font-bold text-foreground">Misi Kami</h3>
+                    <h3 className="font-bold text-foreground">Fokus Kami</h3>
                   </div>
                   <p className="mt-2 text-sm text-muted-foreground">
-                    Merekayasa solusi stainless steel yang menjadi standar kualitas,
-                    daya tahan, dan presisi di setiap industri yang kami layani.
+                    Memberikan hasil fabrikasi yang fungsional, kuat, rapi, dan sesuai dengan kebutuhan setiap proyek.
                   </p>
                 </div>
               </Reveal>
@@ -59,11 +58,10 @@ export function About() {
                 <div className="rounded-2xl border border-border bg-surface p-5 shadow-soft">
                   <div className="flex items-center gap-2 text-accent">
                     <Factory className="h-5 w-5" />
-                    <h3 className="font-bold text-foreground">Visi Kami</h3>
+                    <h3 className="font-bold text-foreground">Pengerjaan Terintegrasi</h3>
                   </div>
                   <p className="mt-2 text-sm text-muted-foreground">
-                    Menjadi produsen stainless steel paling tepercaya, diakui atas inovasi,
-                    integritas, dan keahlian tanpa kompromi.
+                    Kebutuhan proyek dapat dibahas dari konsultasi, pengukuran, desain, fabrikasi, finishing, hingga pemasangan.
                   </p>
                 </div>
               </Reveal>
