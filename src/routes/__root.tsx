@@ -21,9 +21,9 @@ import { COMPANY } from "@/lib/site-data";
 import { SITE_URL, absoluteUrl } from "@/lib/seo";
 import heroImg from "@/assets/hero.jpg";
 
-const DEFAULT_TITLE = "Master Stainless | Fabrikasi Stainless Steel Bekasi";
+const DEFAULT_TITLE = "Master Stainless | Fabrikasi Stainless Steel Jabodetabek";
 const DEFAULT_DESCRIPTION =
-  "Master Stainless melayani fabrikasi stainless steel custom di Bekasi dan Jawa Barat untuk pagar, railing, pintu, peralatan, serta kebutuhan proyek komersial dan industri.";
+  "Master Stainless melayani fabrikasi stainless steel custom di Jabodetabek untuk pagar, railing, pintu, peralatan, serta kebutuhan proyek komersial dan industri.";
 const OG_IMAGE = absoluteUrl(heroImg);
 
 function NotFoundComponent() {
@@ -102,7 +102,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:locale", content: "id_ID" },
       { property: "og:url", content: SITE_URL },
       { property: "og:image", content: OG_IMAGE },
-      { property: "og:image:alt", content: "Master Stainless — fabrikasi stainless steel" },
+      { property: "og:image:alt", content: "Master Stainless — fabrikasi stainless steel Jabodetabek" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: DEFAULT_TITLE },
       { name: "twitter:description", content: DEFAULT_DESCRIPTION },
@@ -134,8 +134,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
               email: COMPANY.email,
               telephone: COMPANY.phone,
               areaServed: [
+                { "@type": "AdministrativeArea", name: "Jakarta" },
+                { "@type": "AdministrativeArea", name: "Bogor" },
+                { "@type": "AdministrativeArea", name: "Depok" },
+                { "@type": "AdministrativeArea", name: "Tangerang" },
                 { "@type": "AdministrativeArea", name: "Bekasi" },
-                { "@type": "AdministrativeArea", name: "Jawa Barat" },
+                { "@type": "AdministrativeArea", name: "Jabodetabek" },
                 { "@type": "Country", name: "Indonesia" },
               ],
             },
@@ -154,9 +158,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
                 latitude: COMPANY.mapLat,
                 longitude: COMPANY.mapLng,
               },
-              areaServed: ["Bekasi", "Jawa Barat", "Indonesia"],
+              areaServed: ["Jabodetabek", "Jakarta", "Bogor", "Depok", "Tangerang", "Bekasi", "Indonesia"],
               knowsAbout: [
-                "fabrikasi stainless steel",
+                "fabrikasi stainless steel Jabodetabek",
                 "pagar stainless steel",
                 "railing stainless steel",
                 "pintu stainless steel",
