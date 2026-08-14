@@ -6,22 +6,23 @@ import { SITE_URL, absoluteUrl } from "@/lib/seo";
 import factoryImg from "@/assets/factory.jpg";
 
 const OG_IMAGE = absoluteUrl(factoryImg);
+const TITLE = "Kontak Master Stainless | Minta Penawaran Fabrikasi";
+const DESCRIPTION =
+  "Hubungi Master Stainless untuk konsultasi dan penawaran fabrikasi stainless steel custom di Bekasi dan Jawa Barat, termasuk pagar, railing, pintu, dan kebutuhan proyek.";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Kontak & Penawaran — Master Stainless" },
-      {
-        name: "description",
-        content:
-          "Minta penawaran atau hubungi Master Stainless. Insinyur kami akan menyiapkan proposal stainless steel yang disesuaikan dalam 24 jam.",
-      },
-      { property: "og:title", content: "Kontak & Penawaran — Master Stainless" },
-      { property: "og:description", content: "Ceritakan proyek stainless steel Anda." },
+      { title: TITLE },
+      { name: "description", content: DESCRIPTION },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESCRIPTION },
       { property: "og:url", content: `${SITE_URL}/contact` },
       { property: "og:image", content: OG_IMAGE },
       { property: "og:image:alt", content: "Workshop fabrikasi stainless steel Master Stainless" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: TITLE },
+      { name: "twitter:description", content: DESCRIPTION },
       { name: "twitter:image", content: OG_IMAGE },
     ],
     links: [{ rel: "canonical", href: `${SITE_URL}/contact` }],
@@ -34,8 +35,8 @@ function ContactPage() {
     <>
       <PageHeader
         eyebrow="Hubungi Kami"
-        title="Mari Bangun Sesuatu yang Luar Biasa"
-        subtitle="Minta penawaran dan tim kami akan merespons dalam 24 jam."
+        title="Konsultasikan Kebutuhan Stainless Steel Anda"
+        subtitle="Ceritakan ukuran, desain, fungsi, atau kondisi lokasi proyek. Tim kami siap membantu menentukan solusi fabrikasi yang sesuai."
       />
       <Contact />
       <FAQ />
