@@ -1,5 +1,5 @@
 import { jsPDF } from "jspdf";
-import { COMPANY, PRODUCTS, PROJECTS, type Product } from "@/lib/site-data";
+import { COMPANY, PRODUCTS, type Product } from "@/lib/site-data";
 import project1 from "@/assets/project-samples/project-1.webp";
 import project2 from "@/assets/project-samples/project-2.webp";
 import project3 from "@/assets/project-samples/project-3.webp";
@@ -21,19 +21,81 @@ const LIGHT: [number, number, number] = [241, 245, 249];
 
 type ImgItem = { title: string; description: string; image: string; category?: string };
 
+// Isi PDF disamakan dengan daftar proyek yang tampil di halaman Proyek,
+// sehingga judul, kategori, deskripsi, dan foto tidak berbeda lagi.
 const PROJECT_BROCHURE_ITEMS: ImgItem[] = [
-  { title: "Pagar Stainless Minimalis", description: "Pagar stainless dengan desain minimalis dan finishing rapi untuk hunian modern.", image: project1, category: "Pagar Stainless" },
-  { title: "Pagar Stainless Modern", description: "Pagar rumah stainless dengan kombinasi bidang solid dan detail horizontal modern.", image: project2, category: "Pagar Stainless" },
-  { title: "Pintu Pagar Stainless", description: "Pintu pagar stainless custom dengan desain dekoratif dan struktur kokoh.", image: project3, category: "Pintu Stainless" },
-  { title: "Pagar Stainless Motif", description: "Pagar stainless dengan ornamen dekoratif dan panel reflektif yang elegan.", image: project4, category: "Pagar Stainless" },
-  { title: "Pagar Stainless Geometris", description: "Pagar custom dengan pola geometris, kombinasi panel dan aksen stainless.", image: project5, category: "Pagar Custom" },
-  { title: "Pagar Stainless Premium", description: "Pagar stainless mirror finish dengan desain garis tegas untuk tampilan premium.", image: project6, category: "Pagar Premium" },
-  { title: "Pagar Stainless Spindle", description: "Pagar dan pintu stainless dengan detail spindle serta aksen pengaman bagian atas.", image: project7, category: "Pagar Stainless" },
-  { title: "Railing Tangga Indoor", description: "Railing tangga stainless minimalis untuk area interior dengan finishing bersih.", image: project8, category: "Railing Tangga" },
-  { title: "Railing Balkon Minimalis", description: "Railing balkon stainless dengan susunan horizontal dan tampilan modern.", image: project9, category: "Railing Balkon" },
-  { title: "Railing Tangga Stainless", description: "Railing tangga custom dengan konstruksi stainless dan desain garis vertikal.", image: project10, category: "Railing Tangga" },
-  { title: "Railing Balkon Custom", description: "Railing balkon stainless dengan kombinasi batang vertikal dan horizontal.", image: project11, category: "Railing Balkon" },
-  { title: "Railing Tangga Premium", description: "Railing tangga stainless custom dengan handrail kokoh dan detail presisi.", image: project12, category: "Railing Tangga" },
+  {
+    title: "Pagar & Gerbang Stainless",
+    category: "Pagar & Gerbang",
+    description: "Pekerjaan pagar dan gerbang stainless custom untuk tampilan rumah yang rapi, kokoh, dan tahan lama.",
+    image: project1,
+  },
+  {
+    title: "Railing Tangga Stainless",
+    category: "Railing Tangga",
+    description: "Railing stainless untuk area tangga indoor dengan konstruksi vertikal yang sederhana dan kokoh.",
+    image: project2,
+  },
+  {
+    title: "Fabrikasi & Pengelasan Stainless",
+    category: "Fabrikasi Stainless",
+    description: "Proses fabrikasi dan pengelasan stainless steel yang dikerjakan secara presisi sesuai kebutuhan proyek.",
+    image: project3,
+  },
+  {
+    title: "Railing Tangga Indoor",
+    category: "Railing Tangga",
+    description: "Railing tangga stainless dengan desain minimalis dan garis vertikal yang memberikan tampilan bersih pada interior.",
+    image: project4,
+  },
+  {
+    title: "Pagar Stainless Custom",
+    category: "Pagar & Gerbang",
+    description: "Pagar stainless custom dengan panel dan detail dekoratif yang dibuat sesuai ukuran dan kebutuhan hunian.",
+    image: project5,
+  },
+  {
+    title: "Railing Tangga Minimalis",
+    category: "Railing Tangga",
+    description: "Railing tangga stainless dengan desain sederhana, proporsional, dan mudah dipadukan dengan interior modern.",
+    image: project6,
+  },
+  {
+    title: "Gerbang Stainless Custom",
+    category: "Pagar & Gerbang",
+    description: "Gerbang stainless dengan kombinasi bidang dan ornamen yang dikerjakan secara custom untuk hunian.",
+    image: project7,
+  },
+  {
+    title: "Railing Tangga Stainless",
+    category: "Railing Tangga",
+    description: "Railing stainless untuk area tangga dengan susunan vertikal yang rapi dan konstruksi yang kokoh.",
+    image: project8,
+  },
+  {
+    title: "Pagar Stainless Modern",
+    category: "Pagar & Gerbang",
+    description: "Pagar stainless dengan kombinasi garis horizontal dan detail vertikal untuk tampilan fasad yang modern.",
+    image: project9,
+  },
+  {
+    title: "Railing Tangga Custom",
+    category: "Railing Tangga",
+    description: "Railing tangga stainless custom dengan konstruksi kokoh dan finishing rapi untuk area hunian.",
+    image: project10,
+  },
+  {
+    title: "Railing Stainless Indoor",
+    category: "Railing Tangga",
+    description: "Railing stainless untuk area tangga dan bordes dengan garis vertikal yang bersih dan presisi.",
+    image: project11,
+  },
+  {
+    title: "Railing Tangga Stainless Custom",
+    category: "Railing Tangga",
+    description: "Pekerjaan railing tangga stainless custom dengan desain minimalis yang menyesuaikan kondisi bangunan.",
+    image: project12,
+  },
 ];
 
 async function toDataUrl(src: string): Promise<{ data: string; w: number; h: number } | null> {
@@ -126,7 +188,7 @@ export async function generateBrochure(
   const tagline =
     type === "products"
       ? "Produk stainless steel premium untuk setiap kebutuhan industri Anda."
-      : "Rangkaian proyek fabrikasi stainless steel unggulan kami.";
+      : "Rangkaian proyek fabrikasi stainless steel unggulan kami di Jabodetabek.";
   doc.text(doc.splitTextToSize(tagline, pageW - margin * 2), margin, pageH / 2 + 4);
 
   doc.setDrawColor(...GOLD);
@@ -142,7 +204,6 @@ export async function generateBrochure(
   );
 
   // ---------- Isi ----------
-  // Portofolio proyek menggunakan 12 foto sample asli yang baru ditambahkan.
   const items: ImgItem[] = type === "products" ? (PRODUCTS as Product[]) : PROJECT_BROCHURE_ITEMS;
   const images = await Promise.all(items.map((it) => toDataUrl(it.image)));
 
