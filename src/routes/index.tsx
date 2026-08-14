@@ -16,9 +16,9 @@ import { SITE_URL, absoluteUrl } from "@/lib/seo";
 import heroImg from "@/assets/hero.jpg";
 
 const OG_IMAGE = absoluteUrl(heroImg);
-const TITLE = "Master Stainless | Fabrikasi Stainless Steel Bekasi";
+const TITLE = "Master Stainless | Fabrikasi Stainless Steel Jabodetabek";
 const DESCRIPTION =
-  "Jasa fabrikasi stainless steel custom di Bekasi dan Jawa Barat untuk pagar, railing, pintu, peralatan, dan kebutuhan proyek komersial maupun industri.";
+  "Jasa fabrikasi stainless steel custom di Jabodetabek untuk pagar, railing, pintu, peralatan, serta kebutuhan proyek komersial dan industri.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -29,7 +29,7 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: DESCRIPTION },
       { property: "og:url", content: `${SITE_URL}/` },
       { property: "og:image", content: OG_IMAGE },
-      { property: "og:image:alt", content: "Fabrikasi stainless steel Master Stainless" },
+      { property: "og:image:alt", content: "Fabrikasi stainless steel Master Stainless Jabodetabek" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: TITLE },
