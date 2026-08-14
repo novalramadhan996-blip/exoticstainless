@@ -1,7 +1,7 @@
 import { CheckCircle2, Cog, Factory, Target, Timer, Users } from "lucide-react";
 import { Reveal } from "./motion-primitives";
 import { SectionHeading } from "./SectionHeading";
-import factoryImg from "@/assets/factory.jpg";
+import project9 from "@/assets/project-samples/project-9.webp";
 
 const features = [
   { icon: CheckCircle2, label: "Pengerjaan Rapi" },
@@ -19,11 +19,12 @@ export function About() {
             <div className="relative">
               <div className="overflow-hidden rounded-3xl shadow-elevated">
                 <img
-                  src={factoryImg}
-                  alt="Pekerjaan fabrikasi stainless steel Master Stainless"
-                  width={1024}
-                  height={1024}
+                  src={project9}
+                  alt="Hasil pekerjaan railing stainless steel Master Stainless"
+                  width={1200}
+                  height={900}
                   loading="lazy"
+                  decoding="async"
                   className="h-full w-full object-cover"
                 />
               </div>
@@ -38,8 +39,8 @@ export function About() {
             <SectionHeading
               align="left"
               eyebrow="Tentang Master Stainless"
-              title="Mengerjakan Stainless Steel Sesuai Kebutuhan"
-              description="Master Stainless melayani kebutuhan fabrikasi stainless steel untuk berbagai lingkungan kerja dan jenis proyek. Kami mengutamakan fungsi, kekuatan, kerapian finishing, serta kesesuaian ukuran dengan kondisi di lapangan."
+              title="Fabrikasi Stainless Steel Sesuai Kebutuhan"
+              description="Master Stainless melayani kebutuhan fabrikasi stainless steel di Jabodetabek, mulai dari pengukuran, pembahasan desain, fabrikasi, finishing, hingga pemasangan. Setiap pekerjaan disesuaikan dengan ukuran dan kondisi aktual di lapangan."
             />
 
             <div className="mt-8 grid gap-6 sm:grid-cols-2">
