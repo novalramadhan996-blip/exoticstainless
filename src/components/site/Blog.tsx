@@ -1,31 +1,61 @@
-import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { ArrowRight, CalendarDays } from "lucide-react";
-import { BLOG } from "@/lib/site-data";
+import { ArrowRight } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { Reveal } from "./motion-primitives";
 import { SectionHeading } from "./SectionHeading";
 
+const projectImages = Object.entries(
+  import.meta.glob("../../assets/project-samples/*.webp", {
+    eager: true,
+    query: "?url",
+    import: "default",
+  }) as Record<string, string>,
+)
+  .sort(([a], [b]) =>
+    a.localeCompare(b, undefined, { numeric: true, sensitivity: "base" }),
+  )
+  .map(([, url]) => url)
+  .filter(Boolean);
+
+const PROJECTS = [
+  {
+    title: "Pagar Stainless Minimalis",
+    category: "Pagar & Gerbang",
+    description: "Pagar stainless custom dengan desain modern, rapi, dan tahan untuk penggunaan jangka panjang.",
+  },
+  {
+    title: "Railing Tangga Indoor",
+    category: "Railing Tangga",
+    description: "Railing stainless untuk area tangga dengan konstruksi kokoh dan detail finishing yang presisi.",
+  },
+  {
+    title: "Railing Balkon Minimalis",
+    category: "Railing Balkon",
+    description: "Railing balkon stainless dengan garis horizontal yang bersih untuk tampilan hunian modern.",
+  },
+];
+
 export function Blog() {
   return (
-    <section id="blog" className="scroll-mt-20 bg-background py-20 sm:py-28">
-
+    <section id="projects-latest" className="scroll-mt-20 bg-background py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          eyebrow="Wawasan"
-          title="Artikel Terbaru"
-          description="Keahlian, tren industri, dan panduan praktis dari tim rekayasa kami."
+          eyebrow="Karya Kami"
+          title="Proyek Terbaru"
+          description="Lihat beberapa hasil pekerjaan Master Stainless yang dikerjakan secara custom untuk kebutuhan hunian, komersial, dan industri di Jabodetabek."
         />
+
         <div className="mt-14 grid gap-8 md:grid-cols-3">
-          {BLOG.map((post, i) => (
-            <Reveal key={post.title} delay={i * 0.1}>
+          {PROJECTS.map((project, i) => (
+            <Reveal key={project.title} delay={i * 0.1}>
               <motion.article
                 whileHover={{ y: -8 }}
                 className="group h-full overflow-hidden rounded-2xl border border-border bg-card shadow-soft transition-shadow hover:shadow-elevated"
               >
                 <div className="aspect-[16/10] overflow-hidden">
                   <img
-                    src={post.image}
-                    alt={`Ilustrasi artikel ${post.category.toLowerCase()}: ${post.title} — Master Stainless`}
+                    src={projectImages[i]}
+                    alt={`${project.title} — Master Stainless Jabodetabek`}
                     width={800}
                     height={500}
                     loading="lazy"
@@ -36,25 +66,18 @@ export function Blog() {
                 </div>
 
                 <div className="p-6">
-                  <div className="flex items-center gap-3 text-xs">
-                    <span className="rounded-full bg-accent/10 px-3 py-1 font-semibold uppercase tracking-wider text-accent">
-                      {post.category}
-                    </span>
-                    <span className="flex items-center gap-1 text-muted-foreground">
-                      <CalendarDays className="h-3.5 w-3.5" /> {post.date}
-                    </span>
-                  </div>
-                  <h3 className="mt-4 text-lg font-bold text-foreground">{post.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{post.excerpt}</p>
+                  <span className="inline-flex rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent">
+                    {project.category}
+                  </span>
+                  <h3 className="mt-4 text-lg font-bold text-foreground">{project.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{project.description}</p>
                   <Link
-                    to="/artikel/$slug"
-                    params={{ slug: post.slug }}
+                    to="/projects"
                     className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-accent transition-colors hover:text-primary"
                   >
-                    Baca Selengkapnya
+                    Lihat Semua Proyek
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Link>
-
                 </div>
               </motion.article>
             </Reveal>
