@@ -19,19 +19,19 @@ const projectImages = Object.entries(
 
 const PROJECTS = [
   {
-    title: "Pagar Stainless Minimalis",
+    title: "Pagar & Gerbang Stainless Custom",
     category: "Pagar & Gerbang",
-    description: "Pagar stainless custom dengan desain modern, rapi, dan tahan untuk penggunaan jangka panjang.",
+    description: "Pagar dan gerbang stainless custom dengan detail dekoratif, konstruksi kokoh, dan finishing rapi untuk hunian.",
   },
   {
-    title: "Railing Tangga Indoor",
-    category: "Railing Tangga",
-    description: "Railing stainless untuk area tangga dengan konstruksi kokoh dan detail finishing yang presisi.",
+    title: "Pagar Stainless Model Custom",
+    category: "Pagar & Gerbang",
+    description: "Pekerjaan pagar stainless dengan desain custom yang disesuaikan dengan tampilan fasad dan kebutuhan area rumah.",
   },
   {
-    title: "Railing Balkon Minimalis",
-    category: "Railing Balkon",
-    description: "Railing balkon stainless dengan garis horizontal yang bersih untuk tampilan hunian modern.",
+    title: "Gerbang Stainless Minimalis",
+    category: "Pagar & Gerbang",
+    description: "Gerbang stainless dengan garis horizontal dan tampilan minimalis yang memberikan kesan modern pada bagian depan hunian.",
   },
 ];
 
