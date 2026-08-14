@@ -9,26 +9,23 @@ import { SITE_URL, absoluteUrl } from "@/lib/seo";
 import factoryImg from "@/assets/factory.jpg";
 
 const OG_IMAGE = absoluteUrl(factoryImg);
+const TITLE = "Tentang Master Stainless | Fabrikasi Stainless Steel Bekasi";
+const DESCRIPTION =
+  "Kenali Master Stainless, penyedia fabrikasi stainless steel custom di Bekasi, Jawa Barat untuk kebutuhan hunian, komersial, industri, hospitality, dan fasilitas.";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "Tentang Kami — Master Stainless" },
-      {
-        name: "description",
-        content:
-          "Mengenal Master Stainless, penyedia solusi fabrikasi stainless steel untuk kebutuhan komersial, industri, hospitality, kesehatan, dan proyek custom.",
-      },
-      { property: "og:title", content: "Tentang Kami — Master Stainless" },
-      {
-        property: "og:description",
-        content:
-          "Solusi fabrikasi stainless steel dengan pengerjaan presisi, rapi, dan disesuaikan dengan kebutuhan proyek.",
-      },
+      { title: TITLE },
+      { name: "description", content: DESCRIPTION },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESCRIPTION },
       { property: "og:url", content: `${SITE_URL}/about` },
       { property: "og:image", content: OG_IMAGE },
-      { property: "og:image:alt", content: "Fasilitas dan pekerjaan fabrikasi stainless steel Master Stainless" },
+      { property: "og:image:alt", content: "Pekerjaan dan fasilitas fabrikasi stainless steel Master Stainless" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: TITLE },
+      { name: "twitter:description", content: DESCRIPTION },
       { name: "twitter:image", content: OG_IMAGE },
     ],
     links: [{ rel: "canonical", href: `${SITE_URL}/about` }],
