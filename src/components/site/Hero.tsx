@@ -2,12 +2,12 @@ import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { ArrowRight, Award, Building2, ShieldCheck, Sparkles, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroImg from "@/assets/hero.jpg";
+import project1 from "@/assets/project-samples/project-1.webp";
 
 const floatingCards = [
-  { icon: Award, value: "20+", label: "Tahun Pengalaman", className: "left-0 top-10" },
-  { icon: Building2, value: "1500+", label: "Proyek", className: "right-0 top-1/2" },
-  { icon: Users, value: "500+", label: "Klien", className: "bottom-6 left-12" },
+  { icon: Award, value: "Custom", label: "Sesuai Kebutuhan", className: "left-0 top-10" },
+  { icon: Building2, value: "Survey", label: "Pengukuran Lokasi", className: "right-0 top-1/2" },
+  { icon: Users, value: "Siap", label: "Fabrikasi & Instalasi", className: "bottom-6 left-12" },
 ];
 
 export function Hero() {
@@ -25,19 +25,18 @@ export function Hero() {
         >
           <span className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-accent">
             <Sparkles className="h-3.5 w-3.5" />
-            Rekayasa Stainless Steel Premium
+            Fabrikasi Stainless Steel Jabodetabek
           </span>
           <h1 className="mt-6 text-4xl font-extrabold leading-[1.05] text-primary-foreground sm:text-5xl lg:text-6xl">
             Solusi Stainless Steel{" "}
-            <span className="text-gradient-gold">Rekayasa</span>
+            <span className="text-gradient-gold">Custom</span>
             <span className="mt-2 block text-2xl font-semibold text-primary-foreground/80 sm:text-3xl">
-              Dibangun untuk Performa, Dirancang untuk Presisi
+              Rapi, Kokoh, dan Sesuai Kondisi Lapangan
             </span>
           </h1>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-primary-foreground/70 sm:text-lg">
-            Dari fabrikasi kustom hingga instalasi ke seluruh negeri, kami menghadirkan stainless steel
-            yang tahan lama, higienis, dan berfinishing indah sesuai standar tertinggi — untuk kesehatan,
-            perhotelan, pangan, dan industri.
+            Master Stainless melayani fabrikasi pagar, pintu, railing tangga, railing balkon, dan kebutuhan
+            stainless steel custom untuk rumah, ruko, kantor, serta bangunan komersial di Jabodetabek.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <Button asChild variant="gold" size="xl">
@@ -46,12 +45,12 @@ export function Hero() {
               </Link>
             </Button>
             <Button asChild variant="outlineLight" size="xl">
-              <Link to="/products">Produk Kami</Link>
+              <Link to="/products">Lihat Produk</Link>
             </Button>
           </div>
           <div className="mt-10 flex items-center gap-3 text-sm text-primary-foreground/60">
             <ShieldCheck className="h-5 w-5 text-accent" />
-            Produksi Bersertifikat ISO 9001:2015
+            Survey, fabrikasi, finishing, dan instalasi
           </div>
         </motion.div>
 
@@ -63,11 +62,12 @@ export function Hero() {
         >
           <div className="overflow-hidden rounded-3xl border border-primary-foreground/10 shadow-elevated">
             <img
-              src={heroImg}
-              alt="Fasilitas manufaktur stainless steel modern"
-              width={1280}
-              height={1024}
+              src={project1}
+              alt="Hasil fabrikasi pagar stainless steel Master Stainless"
+              width={1200}
+              height={900}
               className="h-full w-full object-cover"
+              fetchPriority="high"
             />
           </div>
 
