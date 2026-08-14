@@ -24,77 +24,78 @@ type Project = {
   image: string;
 };
 
+// Judul dan kategori disesuaikan dengan objek yang terlihat pada foto proyek.
 const PROJECTS: Project[] = [
   {
-    title: "Pagar Stainless Minimalis",
+    title: "Pagar & Gerbang Stainless",
     category: "Pagar & Gerbang",
-    description: "Pagar stainless dengan kombinasi panel dan aksen kayu untuk tampilan rumah yang modern.",
+    description: "Pekerjaan pagar dan gerbang stainless custom untuk tampilan rumah yang rapi, kokoh, dan tahan lama.",
     image: projectImages[0],
-  },
-  {
-    title: "Pagar Stainless Modern",
-    category: "Pagar & Gerbang",
-    description: "Pagar model horizontal dengan detail aksen stainless yang rapi dan elegan.",
-    image: projectImages[1],
-  },
-  {
-    title: "Pintu Pagar Stainless",
-    category: "Pagar & Gerbang",
-    description: "Pintu pagar stainless dengan motif dekoratif yang dikerjakan secara custom.",
-    image: projectImages[2],
-  },
-  {
-    title: "Pagar Stainless Motif",
-    category: "Pagar & Gerbang",
-    description: "Pagar stainless dengan kombinasi panel, ornamen, dan finishing mirror.",
-    image: projectImages[3],
-  },
-  {
-    title: "Pagar Stainless Geometris",
-    category: "Pagar & Gerbang",
-    description: "Model pagar geometris dengan panel reflektif untuk hunian modern.",
-    image: projectImages[4],
-  },
-  {
-    title: "Pagar Stainless Premium",
-    category: "Pagar & Gerbang",
-    description: "Pagar stainless dengan pola garis geometris dan finishing mengilap.",
-    image: projectImages[5],
-  },
-  {
-    title: "Pagar Stainless Spindle",
-    category: "Pagar & Gerbang",
-    description: "Pagar dan gerbang stainless dengan aksen spindle serta detail ornamen pada bagian atas.",
-    image: projectImages[6],
-  },
-  {
-    title: "Railing Tangga Indoor",
-    category: "Railing Tangga",
-    description: "Railing stainless minimalis untuk tangga indoor dengan garis vertikal yang bersih.",
-    image: projectImages[7],
-  },
-  {
-    title: "Railing Balkon Minimalis",
-    category: "Railing Balkon",
-    description: "Railing balkon stainless dengan kombinasi garis horizontal untuk hunian modern.",
-    image: projectImages[8],
   },
   {
     title: "Railing Tangga Stainless",
     category: "Railing Tangga",
-    description: "Railing tangga stainless custom dengan desain sederhana dan kokoh.",
+    description: "Railing stainless untuk area tangga indoor dengan konstruksi vertikal yang sederhana dan kokoh.",
+    image: projectImages[1],
+  },
+  {
+    title: "Fabrikasi & Pengelasan Stainless",
+    category: "Fabrikasi Stainless",
+    description: "Proses fabrikasi dan pengelasan stainless steel yang dikerjakan secara presisi sesuai kebutuhan proyek.",
+    image: projectImages[2],
+  },
+  {
+    title: "Railing Tangga Indoor",
+    category: "Railing Tangga",
+    description: "Railing tangga stainless dengan desain minimalis dan garis vertikal yang memberikan tampilan bersih pada interior.",
+    image: projectImages[3],
+  },
+  {
+    title: "Pagar Stainless Custom",
+    category: "Pagar & Gerbang",
+    description: "Pagar stainless custom dengan panel dan detail dekoratif yang dibuat sesuai ukuran dan kebutuhan hunian.",
+    image: projectImages[4],
+  },
+  {
+    title: "Railing Tangga Minimalis",
+    category: "Railing Tangga",
+    description: "Railing tangga stainless dengan desain sederhana, proporsional, dan mudah dipadukan dengan interior modern.",
+    image: projectImages[5],
+  },
+  {
+    title: "Gerbang Stainless Custom",
+    category: "Pagar & Gerbang",
+    description: "Gerbang stainless dengan kombinasi bidang dan ornamen yang dikerjakan secara custom untuk hunian.",
+    image: projectImages[6],
+  },
+  {
+    title: "Railing Tangga Stainless",
+    category: "Railing Tangga",
+    description: "Railing stainless untuk area tangga dengan susunan vertikal yang rapi dan konstruksi yang kokoh.",
+    image: projectImages[7],
+  },
+  {
+    title: "Pagar Stainless Modern",
+    category: "Pagar & Gerbang",
+    description: "Pagar stainless dengan kombinasi garis horizontal dan detail vertikal untuk tampilan fasad yang modern.",
+    image: projectImages[8],
+  },
+  {
+    title: "Railing Tangga Custom",
+    category: "Railing Tangga",
+    description: "Railing tangga stainless custom dengan konstruksi kokoh dan finishing rapi untuk area hunian.",
     image: projectImages[9],
   },
   {
-    title: "Railing Balkon Custom",
-    category: "Railing Balkon",
-    description: "Railing balkon stainless dengan frame kotak dan pola vertikal yang presisi.",
+    title: "Railing Stainless Indoor",
+    category: "Railing Tangga",
+    description: "Railing stainless untuk area tangga dan bordes dengan garis vertikal yang bersih dan presisi.",
     image: projectImages[10],
   },
   {
-    title: "Railing Tangga Premium",
+    title: "Railing Tangga Stainless Custom",
     category: "Railing Tangga",
-    description: "Railing stainless untuk area tangga dengan konstruksi custom dan finishing rapi.",
+    description: "Pekerjaan railing tangga stainless custom dengan desain minimalis yang menyesuaikan kondisi bangunan.",
     image: projectImages[11],
   },
 ].filter((project) => Boolean(project.image));
@@ -108,7 +109,7 @@ export function Projects() {
         <SectionHeading
           eyebrow="Karya Kami"
           title="Proyek Unggulan"
-          description="Lihat beberapa hasil pekerjaan Master Stainless, mulai dari pagar hingga railing tangga dan balkon."
+          description="Lihat hasil pekerjaan Master Stainless yang dikerjakan secara custom, mulai dari pagar dan gerbang hingga railing tangga serta fabrikasi stainless di Jabodetabek."
         />
 
         <div className="mt-14 columns-1 gap-6 sm:columns-2 lg:columns-3 [&>*]:mb-6">
@@ -120,10 +121,11 @@ export function Projects() {
               >
                 <img
                   src={project.image}
-                  alt={project.title}
+                  alt={`${project.title} — Master Stainless Jabodetabek`}
                   width={800}
                   height={600}
                   loading="lazy"
+                  decoding="async"
                   className={`w-full object-cover transition-transform duration-700 group-hover:scale-110 ${
                     i % 2 === 0 ? "aspect-[4/5]" : "aspect-[4/3]"
                   }`}
@@ -153,7 +155,7 @@ export function Projects() {
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
                 <img
                   src={active.image}
-                  alt={active.title}
+                  alt={`${active.title} — Master Stainless Jabodetabek`}
                   className="h-64 w-full object-cover"
                 />
                 <div className="p-6">
