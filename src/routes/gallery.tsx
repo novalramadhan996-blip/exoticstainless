@@ -38,26 +38,23 @@ const IMAGES = [
 }));
 
 const OG_IMAGE = absoluteUrl(IMAGES[0].src);
+const TITLE = "Galeri Fabrikasi Stainless Steel | Master Stainless";
+const DESCRIPTION =
+  "Lihat galeri hasil pekerjaan Master Stainless: pagar, railing tangga, railing balkon, pintu, kanopi, dan fabrikasi stainless steel custom.";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
     meta: [
-      { title: "Galeri Proyek — Master Stainless" },
-      {
-        name: "description",
-        content:
-          "Galeri proyek Master Stainless yang menampilkan hasil fabrikasi pagar, railing, tangga, pintu, kanopi, dan produk stainless steel custom.",
-      },
-      { property: "og:title", content: "Galeri Proyek — Master Stainless" },
-      {
-        property: "og:description",
-        content:
-          "Lihat hasil pekerjaan Master Stainless secara langsung melalui koleksi proyek stainless steel kami.",
-      },
+      { title: TITLE },
+      { name: "description", content: DESCRIPTION },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESCRIPTION },
       { property: "og:url", content: `${SITE_URL}/gallery` },
       { property: "og:image", content: OG_IMAGE },
-      { property: "og:image:alt", content: "Galeri proyek stainless steel Master Stainless" },
+      { property: "og:image:alt", content: "Galeri proyek fabrikasi stainless steel Master Stainless" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: TITLE },
+      { name: "twitter:description", content: DESCRIPTION },
       { name: "twitter:image", content: OG_IMAGE },
     ],
     links: [{ rel: "canonical", href: `${SITE_URL}/gallery` }],
@@ -67,7 +64,8 @@ export const Route = createFileRoute("/gallery")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "ImageGallery",
-          name: "Galeri Proyek Master Stainless",
+          name: "Galeri Fabrikasi Stainless Steel Master Stainless",
+          description: DESCRIPTION,
           url: `${SITE_URL}/gallery`,
           inLanguage: "id-ID",
           image: IMAGES.map((img) => ({
@@ -91,7 +89,7 @@ function GalleryPage() {
       <PageHeader
         eyebrow="Galeri Proyek"
         title="Hasil Pekerjaan Master Stainless"
-        subtitle="Koleksi hasil fabrikasi stainless steel kami — kualitas, presisi, dan ketahanan dalam setiap detail."
+        subtitle="Koleksi hasil fabrikasi stainless steel untuk pagar, railing, pintu, kanopi, dan kebutuhan custom lainnya."
       />
 
       <section className="bg-background py-16 sm:py-20 lg:py-24">
