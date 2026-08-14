@@ -16,26 +16,27 @@ const companyLinks: FooterLink[] = [
   { label: "Beranda", to: "/" },
   { label: "Tentang Kami", to: "/about" },
   { label: "Produk", to: "/products" },
-  { label: "Proyek", to: "/projects" },
+  { label: "Layanan", to: "/", hash: "services" },
   { label: "Galeri", to: "/gallery" },
   { label: "Kontak", to: "/contact" },
 ];
 
 const productLinks: FooterLink[] = [
-  { label: "Pagar Stainless Steel", to: "/produk/$slug", params: { slug: "pagar-stainless-steel" } },
-  { label: "Pagar & Pintu Stainless", to: "/produk/$slug", params: { slug: "pagar-dan-pintu-stainless" } },
-  { label: "Pagar Minimalis", to: "/produk/$slug", params: { slug: "pagar-minimalis-stainless" } },
-  { label: "Railing Tangga", to: "/produk/$slug", params: { slug: "railing-tangga-stainless" } },
-  { label: "Railing Balkon", to: "/produk/$slug", params: { slug: "railing-balkon-stainless" } },
-  { label: "Produk Custom", to: "/produk/$slug", params: { slug: "pagar-stainless-custom" } },
+  { label: "Peralatan Dapur", to: "/produk/$slug", params: { slug: "peralatan-dapur" } },
+  { label: "Peralatan Rumah Sakit", to: "/produk/$slug", params: { slug: "peralatan-rumah-sakit" } },
+  { label: "Peralatan Laboratorium", to: "/produk/$slug", params: { slug: "peralatan-laboratorium" } },
+  { label: "Pengolahan Makanan", to: "/produk/$slug", params: { slug: "peralatan-pengolahan-makanan" } },
+  { label: "Penyimpanan Industri", to: "/produk/$slug", params: { slug: "penyimpanan-industri" } },
+  { label: "Railing & Balustrade", to: "/produk/$slug", params: { slug: "railing-balustrade" } },
 ];
 
 const serviceLinks: FooterLink[] = [
-  { label: "Fabrikasi Kustom", to: "/", hash: "services" },
-  { label: "Pemotongan & Fabrikasi", to: "/", hash: "services" },
-  { label: "Pengelasan Presisi", to: "/", hash: "services" },
-  { label: "Instalasi di Lokasi", to: "/", hash: "services" },
-  { label: "Konsultasi Proyek", to: "/contact" },
+  { label: "Pagar Stainless", to: "/", hash: "services" },
+  { label: "Railing Tangga", to: "/", hash: "services" },
+  { label: "Balkon Stainless", to: "/", hash: "services" },
+  { label: "Pintu Stainless", to: "/", hash: "services" },
+  { label: "Cutting & Pola", to: "/", hash: "services" },
+  { label: "Fabrikasi Custom", to: "/", hash: "services" },
 ];
 
 function FooterColumn({ title, links }: { title: string; links: FooterLink[] }) {
@@ -70,7 +71,6 @@ export function Footer() {
     <footer className="bg-footer text-primary-foreground">
       <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-[1.45fr_1fr_1fr_1.45fr]">
-          {/* BRAND */}
           <div>
             <Link
               to="/"
@@ -90,9 +90,9 @@ export function Footer() {
             </Link>
 
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-primary-foreground/60">
-              Spesialis fabrikasi stainless steel custom untuk pagar, railing,
-              perlengkapan komersial, dan kebutuhan proyek dengan pengerjaan
-              yang rapi dan presisi.
+              Melayani kebutuhan fabrikasi stainless steel custom untuk pagar,
+              railing, pintu, balkon, dan berbagai kebutuhan proyek sesuai
+              ukuran serta kondisi lokasi.
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3">
@@ -111,7 +111,6 @@ export function Footer() {
           <FooterColumn title="Perusahaan" links={companyLinks} />
           <FooterColumn title="Produk" links={productLinks} />
 
-          {/* CONTACT */}
           <div>
             <h4 className="text-sm font-bold uppercase tracking-wider text-primary-foreground">
               Hubungi Kami
@@ -174,7 +173,6 @@ export function Footer() {
           </div>
         </div>
 
-        {/* BOTTOM BAR */}
         <div className="mt-12 flex flex-col gap-3 border-t border-primary-foreground/10 pt-6 text-sm text-primary-foreground/50 sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {new Date().getFullYear()} {COMPANY.name}. Semua hak dilindungi.
