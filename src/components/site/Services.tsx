@@ -15,17 +15,17 @@ const SERVICES = [
     description: "Railing tangga dengan detail sambungan yang rapi, kokoh, dan disesuaikan dengan bentuk tangga serta konsep bangunan.",
   },
   {
-    icon: "Building2",
+    icon: "Settings",
     title: "Pembuatan Balkon",
     description: "Railing dan perlengkapan balkon stainless untuk tampilan yang bersih sekaligus membantu menjaga keamanan area.",
   },
   {
-    icon: "Layers",
+    icon: "Flame",
     title: "Tangga & Plat Stainless",
     description: "Pengerjaan tangga, plat, dan komponen stainless sesuai ukuran lapangan dan kebutuhan konstruksi.",
   },
   {
-    icon: "DoorOpen",
+    icon: "Wrench",
     title: "Pembuatan Pintu Stainless",
     description: "Pintu stainless untuk kebutuhan hunian, usaha, dan area kerja dengan desain yang menyesuaikan kondisi lokasi.",
   },
@@ -35,7 +35,7 @@ const SERVICES = [
     description: "Pemotongan dan pembuatan pola stainless untuk kebutuhan dekoratif maupun komponen fabrikasi.",
   },
   {
-    icon: "Wrench",
+    icon: "Hammer",
     title: "Fabrikasi Custom",
     description: "Punya desain atau ukuran sendiri? Kami kerjakan berdasarkan kebutuhan, gambar, atau hasil pengukuran di lokasi.",
   },
