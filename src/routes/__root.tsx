@@ -13,10 +13,11 @@ import { COMPANY } from "@/lib/site-data";
 import { SITE_URL, absoluteUrl } from "@/lib/seo";
 import heroImg from "@/assets/hero.jpg";
 
-const DEFAULT_TITLE = "Exotic Stainless | Fabrikasi Stainless Steel Jabodetabek";
-const DEFAULT_DESCRIPTION = "Exotic Stainless melayani fabrikasi stainless steel custom di Jabodetabek untuk railing, pagar, gerbang, pintu, peralatan stainless, dan kebutuhan proyek komersial maupun industri.";
+const DEFAULT_TITLE = "Exotic Stainless | Fabrikasi Stainless Steel & Railing Jabodetabek";
+const DEFAULT_DESCRIPTION = "Exotic Stainless melayani fabrikasi stainless steel custom di Jabodetabek untuk railing, pagar, gerbang, pintu, peralatan stainless, dan kebutuhan proyek rumah, komersial, maupun industri.";
 const OG_IMAGE = absoluteUrl(heroImg);
 const CANONICAL_URL = SITE_URL || "/";
+const FAVICON_URL = "/favicon.svg?v=exotic-stainless-2026";
 
 function NotFoundComponent() {
   return <div className="flex min-h-screen items-center justify-center bg-background px-4"><div className="max-w-md text-center"><h1 className="text-7xl font-bold text-foreground">404</h1><h2 className="mt-4 text-xl font-semibold text-foreground">Halaman tidak ditemukan</h2><p className="mt-2 text-sm text-muted-foreground">Halaman yang kamu cari tidak tersedia atau sudah dipindahkan.</p><div className="mt-6"><Link to="/" className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90">Kembali ke Beranda</Link></div></div></div>;
@@ -36,7 +37,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1, viewport-fit=cover" },
       { title: DEFAULT_TITLE },
       { name: "description", content: DEFAULT_DESCRIPTION },
-      { name: "keywords", content: "Exotic Stainless, fabrikasi stainless steel, stainless steel Jabodetabek, railing stainless, pagar stainless, gerbang stainless, pintu stainless, stainless custom, Bekasi, Jakarta, Bogor, Depok, Tangerang" },
+      { name: "keywords", content: "Exotic Stainless, fabrikasi stainless steel, stainless steel Jabodetabek, railing stainless, railing tangga, railing balkon, pagar stainless, gerbang stainless, pintu stainless, stainless custom, Bekasi, Jakarta, Bogor, Depok, Tangerang" },
       { name: "author", content: COMPANY.name },
       { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
       { name: "googlebot", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
@@ -58,8 +59,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
-      { rel: "apple-touch-icon", href: "/favicon.svg" },
+      { rel: "icon", type: "image/svg+xml", href: FAVICON_URL },
+      { rel: "shortcut icon", type: "image/svg+xml", href: FAVICON_URL },
+      { rel: "apple-touch-icon", href: FAVICON_URL },
       { rel: "canonical", href: CANONICAL_URL },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
@@ -68,8 +70,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     scripts: [{ type: "application/ld+json", children: JSON.stringify({
       "@context": "https://schema.org",
       "@graph": [
-        { "@type": "Organization", "@id": `${CANONICAL_URL}/#organization`, name: COMPANY.name, url: CANONICAL_URL, logo: absoluteUrl("/favicon.svg"), email: COMPANY.email, telephone: COMPANY.phone, areaServed: [{ "@type": "AdministrativeArea", name: "Jakarta" }, { "@type": "AdministrativeArea", name: "Bogor" }, { "@type": "AdministrativeArea", name: "Depok" }, { "@type": "AdministrativeArea", name: "Tangerang" }, { "@type": "AdministrativeArea", name: "Bekasi" }, { "@type": "AdministrativeArea", name: "Jabodetabek" }, { "@type": "Country", name: "Indonesia" }] },
-        { "@type": "LocalBusiness", "@id": `${CANONICAL_URL}/#localbusiness`, name: COMPANY.name, url: CANONICAL_URL, image: OG_IMAGE, telephone: COMPANY.phone, email: COMPANY.email, priceRange: "$$", openingHours: "Mo-Sa 08:00-18:00", geo: { "@type": "GeoCoordinates", latitude: COMPANY.mapLat, longitude: COMPANY.mapLng }, areaServed: ["Jabodetabek", "Jakarta", "Bogor", "Depok", "Tangerang", "Bekasi", "Indonesia"], knowsAbout: ["fabrikasi stainless steel Jabodetabek", "pagar stainless steel", "railing stainless steel", "pintu stainless steel", "produk stainless steel custom"] },
+        { "@type": "Organization", "@id": `${CANONICAL_URL}/#organization`, name: COMPANY.name, url: CANONICAL_URL, logo: absoluteUrl(FAVICON_URL), email: COMPANY.email, telephone: COMPANY.phone, areaServed: [{ "@type": "AdministrativeArea", name: "Jakarta" }, { "@type": "AdministrativeArea", name: "Bogor" }, { "@type": "AdministrativeArea", name: "Depok" }, { "@type": "AdministrativeArea", name: "Tangerang" }, { "@type": "AdministrativeArea", name: "Bekasi" }, { "@type": "AdministrativeArea", name: "Jabodetabek" }, { "@type": "Country", name: "Indonesia" }] },
+        { "@type": "LocalBusiness", "@id": `${CANONICAL_URL}/#localbusiness`, name: COMPANY.name, url: CANONICAL_URL, image: OG_IMAGE, telephone: COMPANY.phone, email: COMPANY.email, priceRange: "$$", openingHours: "Mo-Sa 08:00-18:00", geo: { "@type": "GeoCoordinates", latitude: COMPANY.mapLat, longitude: COMPANY.mapLng }, areaServed: ["Jabodetabek", "Jakarta", "Bogor", "Depok", "Tangerang", "Bekasi", "Indonesia"], knowsAbout: ["fabrikasi stainless steel Jabodetabek", "pagar stainless steel", "railing stainless steel", "railing tangga", "railing balkon", "pintu stainless steel", "produk stainless steel custom"] },
         { "@type": "WebSite", "@id": `${CANONICAL_URL}/#website`, name: COMPANY.name, url: CANONICAL_URL, inLanguage: "id-ID", publisher: { "@id": `${CANONICAL_URL}/#organization` } },
       ],
     }) }],
