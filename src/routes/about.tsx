@@ -9,9 +9,9 @@ import { SITE_URL, absoluteUrl } from "@/lib/seo";
 import factoryImg from "@/assets/factory.jpg";
 
 const OG_IMAGE = absoluteUrl(factoryImg);
-const TITLE = "Tentang Master Stainless | Fabrikasi Stainless Steel Bekasi";
+const TITLE = "Tentang Exotic Stainless | Fabrikasi Stainless Steel Jabodetabek";
 const DESCRIPTION =
-  "Kenali Master Stainless, penyedia fabrikasi stainless steel custom di Bekasi, Jawa Barat untuk kebutuhan hunian, komersial, industri, hospitality, dan fasilitas.";
+  "Kenali Exotic Stainless, penyedia fabrikasi stainless steel custom di Jabodetabek untuk kebutuhan hunian, komersial, industri, hospitality, dan fasilitas.";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -22,7 +22,7 @@ export const Route = createFileRoute("/about")({
       { property: "og:description", content: DESCRIPTION },
       { property: "og:url", content: `${SITE_URL}/about` },
       { property: "og:image", content: OG_IMAGE },
-      { property: "og:image:alt", content: "Pekerjaan dan fasilitas fabrikasi stainless steel Master Stainless" },
+      { property: "og:image:alt", content: "Pekerjaan dan fasilitas fabrikasi stainless steel Exotic Stainless" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: TITLE },
       { name: "twitter:description", content: DESCRIPTION },
