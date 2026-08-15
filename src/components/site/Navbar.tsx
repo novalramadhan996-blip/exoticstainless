@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
-import logoMark from "@/assets/master-stainless-mark.png";
+import logoMark from "@/assets/exotic-stainless-logo.svg";
 import { Button } from "@/components/ui/button";
 import { COMPANY, NAV_LINKS } from "@/lib/site-data";
 
@@ -23,12 +23,8 @@ export function Navbar() {
     };
 
     onScroll();
-
     window.addEventListener("scroll", onScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-    };
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   const solid = scrolled || !onHome || open;
@@ -42,33 +38,27 @@ export function Navbar() {
       }`}
     >
       <div className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
-        {/* Logo */}
         <Link
           to="/"
-          className="flex shrink-0 items-center gap-2.5"
+          className="flex shrink-0 items-center gap-3"
           aria-label={COMPANY.name}
         >
           <img
             src={logoMark}
             alt={`Logo ${COMPANY.name}`}
-            className="h-11 w-11 object-contain drop-shadow"
+            className="h-12 w-12 rounded-xl object-cover drop-shadow"
             loading="eager"
             decoding="async"
           />
-
           <span
             className={`text-lg font-extrabold uppercase tracking-tight ${
-              solid
-                ? "text-foreground"
-                : "text-primary-foreground"
+              solid ? "text-foreground" : "text-primary-foreground"
             }`}
           >
-            Master
-            <span className="text-accent"> Stainless</span>
+            Exotic<span className="text-accent"> Stainless</span>
           </span>
         </Link>
 
-        {/* Desktop Navigation */}
         <nav className="hidden items-center gap-1 lg:flex">
           {NAV_LINKS.map((link) => (
             <Link
@@ -76,30 +66,22 @@ export function Navbar() {
               to={link.to}
               hash={"hash" in link ? link.hash : undefined}
               className={`rounded-lg px-3.5 py-2 text-sm font-semibold transition-colors hover:text-accent ${
-                solid
-                  ? "text-foreground/80"
-                  : "text-primary-foreground/90"
+                solid ? "text-foreground/80" : "text-primary-foreground/90"
               }`}
-              activeProps={{
-                className: "text-accent",
-              }}
-              activeOptions={{
-                exact: link.to === "/",
-              }}
+              activeProps={{ className: "text-accent" }}
+              activeOptions={{ exact: link.to === "/" }}
             >
               {link.label}
             </Link>
           ))}
         </nav>
 
-        {/* Desktop CTA */}
         <div className="hidden lg:block">
           <Button asChild variant="gold" size="lg">
             <Link to="/contact">Minta Penawaran</Link>
           </Button>
         </div>
 
-        {/* Mobile Menu Button */}
         <button
           type="button"
           aria-label={open ? "Tutup menu" : "Buka menu"}
@@ -111,80 +93,41 @@ export function Navbar() {
               : "border-primary-foreground/30 text-primary-foreground"
           }`}
         >
-          {open ? (
-            <X className="h-5 w-5" />
-          ) : (
-            <Menu className="h-5 w-5" />
-          )}
+          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
 
-      {/* Mobile Navigation */}
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{
-              opacity: 0,
-              height: 0,
-            }}
-            animate={{
-              opacity: 1,
-              height: "auto",
-            }}
-            exit={{
-              opacity: 0,
-              height: 0,
-            }}
-            transition={{
-              duration: 0.3,
-              ease: "easeInOut",
-            }}
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
             className="overflow-hidden border-t border-border bg-background lg:hidden"
           >
             <nav className="flex flex-col gap-1 px-4 py-4">
               {NAV_LINKS.map((link, i) => (
                 <motion.div
                   key={link.label}
-                  initial={{
-                    opacity: 0,
-                    x: -16,
-                  }}
-                  animate={{
-                    opacity: 1,
-                    x: 0,
-                  }}
-                  transition={{
-                    delay: i * 0.05,
-                  }}
+                  initial={{ opacity: 0, x: -16 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.05 }}
                 >
                   <Link
                     to={link.to}
                     hash={"hash" in link ? link.hash : undefined}
                     onClick={() => setOpen(false)}
                     className="block rounded-lg px-3 py-3 text-base font-semibold text-foreground/80 hover:bg-muted hover:text-accent"
-                    activeProps={{
-                      className: "text-accent",
-                    }}
-                    activeOptions={{
-                      exact: link.to === "/",
-                    }}
+                    activeProps={{ className: "text-accent" }}
+                    activeOptions={{ exact: link.to === "/" }}
                   >
                     {link.label}
                   </Link>
                 </motion.div>
               ))}
-
-              {/* Mobile CTA */}
-              <Button
-                asChild
-                variant="gold"
-                size="lg"
-                className="mt-2"
-              >
-                <Link
-                  to="/contact"
-                  onClick={() => setOpen(false)}
-                >
+              <Button asChild variant="gold" size="lg" className="mt-2">
+                <Link to="/contact" onClick={() => setOpen(false)}>
                   Minta Penawaran
                 </Link>
               </Button>
