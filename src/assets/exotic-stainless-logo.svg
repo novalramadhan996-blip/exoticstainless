@@ -1,27 +1,31 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-labelledby="title desc">
-  <title id="title">Exotic Stainless</title>
-  <desc id="desc">Metallic Exotic Stainless logo</desc>
+  <title id="title">Exotic Stainless emblem</title>
+  <desc id="desc">Metallic angular X emblem for Exotic Stainless</desc>
   <defs>
     <linearGradient id="steel" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#f8fafc"/>
-      <stop offset="0.25" stop-color="#8b929a"/>
-      <stop offset="0.5" stop-color="#ffffff"/>
-      <stop offset="0.72" stop-color="#5b6168"/>
-      <stop offset="1" stop-color="#e5e7eb"/>
+      <stop offset="0.22" stop-color="#7b8188"/>
+      <stop offset="0.46" stop-color="#ffffff"/>
+      <stop offset="0.68" stop-color="#4b5056"/>
+      <stop offset="0.86" stop-color="#e5e7eb"/>
+      <stop offset="1" stop-color="#737980"/>
+    </linearGradient>
+    <linearGradient id="darkSteel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#dfe3e7"/>
+      <stop offset="0.5" stop-color="#555b62"/>
+      <stop offset="1" stop-color="#bfc4c9"/>
     </linearGradient>
     <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
-      <feDropShadow dx="0" dy="12" stdDeviation="10" flood-color="#000" flood-opacity=".55"/>
+      <feDropShadow dx="0" dy="14" stdDeviation="10" flood-color="#000" flood-opacity=".55"/>
     </filter>
   </defs>
-  <rect width="800" height="1000" rx="36" fill="#111214"/>
-  <g fill="none" stroke="url(#steel)" stroke-width="48" stroke-linejoin="miter" filter="url(#shadow)">
-    <path d="M170 190 L400 420 L630 190 L400 650 Z"/>
-    <path d="M180 300 L400 520 L620 300"/>
+  <g filter="url(#shadow)" stroke-linejoin="miter">
+    <path d="M170 185 L400 415 L630 185 L555 185 L400 340 L245 185 Z" fill="url(#steel)"/>
+    <path d="M150 300 L400 550 L650 300 L610 300 L400 510 L190 300 Z" fill="url(#darkSteel)"/>
+    <path d="M350 400 L400 350 L450 400 L400 450 Z" fill="#24272b"/>
+    <path d="M170 185 L245 185 L400 340 L400 415 Z" fill="url(#darkSteel)" opacity=".9"/>
+    <path d="M630 185 L555 185 L400 340 L400 415 Z" fill="url(#steel)" opacity=".9"/>
+    <path d="M355 430 L400 475 L445 430 L505 490 L400 595 L295 490 Z" fill="url(#steel)"/>
+    <path d="M305 635 L400 730 L495 635 L455 635 L400 690 L345 635 Z" fill="url(#steel)"/>
   </g>
-  <g fill="url(#steel)" font-family="Arial, Helvetica, sans-serif" font-weight="900" text-anchor="middle">
-    <text x="400" y="745" font-size="132" letter-spacing="-5">EXOTIC</text>
-    <text x="400" y="825" font-size="42" letter-spacing="18">STAINLESS</text>
-  </g>
-  <path d="M90 850 H710" stroke="url(#steel)" stroke-width="5"/>
-  <path d="M365 865 L400 900 L435 865" fill="url(#steel)"/>
 </svg>
