@@ -6,10 +6,10 @@ import handrails from "@/assets/product-handrails.jpg";
 import food from "@/assets/product-food.jpg";
 
 export const COMPANY = {
-  name: "Master Stainless",
-  short: "Master Stainless",
+  name: "Exotic Stainless",
+  short: "Exotic Stainless",
   phone: "+62 895-3303-36479",
-  email: "halo@masterstainless.co.id",
+  email: "info@exoticstainless",
   office: "6°12'07.6\"S 107°02'30.3\"E, Kabupaten Bekasi, Jawa Barat",
   hours: "Senin – Sabtu · 08.00 – 18.00 WIB",
   whatsapp: "62895330336479",
@@ -272,7 +272,6 @@ export const PRODUCTS: Product[] = [
   },
 ];
 
-
 export const PROJECTS = [
   { title: "Hotel Aurora Grand", category: "Hotel", image: kitchen, description: "Fit-out stainless lengkap untuk area belakang dapur di tiga dapur dan dua area persiapan banquet hotel bintang lima." },
   { title: "RS St. Vincent", category: "Rumah Sakit", image: hospital, description: "Perlengkapan steril, meja operasi, dan lemari modular yang memenuhi standar kesehatan ketat." },
@@ -331,10 +330,10 @@ export const INDUSTRIES = [
 ];
 
 export const TESTIMONIALS = [
-  { name: "Maria Alvarez", role: "Direktur Operasional, Aurora Hotels", quote: "Master Stainless menyelesaikan fit-out dapur dengan sempurna, tepat waktu dan sesuai anggaran. Kualitas finishing-nya luar biasa." },
+  { name: "Maria Alvarez", role: "Direktur Operasional, Aurora Hotels", quote: "Exotic Stainless menyelesaikan fit-out dapur dengan sempurna, tepat waktu dan sesuai anggaran. Kualitas finishing-nya luar biasa." },
   { name: "dr. James Whitford", role: "Kepala Fasilitas, St. Vincent Medical", quote: "Perhatian mereka pada standar higienis dan presisi persis seperti yang dibutuhkan rumah sakit kami. Mitra yang andal." },
   { name: "Sophie Tan", role: "Chef Utama, Harborview", quote: "Meja kerja kustom mengubah alur kerja dapur kami. Dirancang dengan indah dan dibuat untuk tahan lama." },
-  { name: "Daniel Brooks", role: "Manajer Pabrik, Northfield Foods", quote: "Kokoh, aman untuk pangan, dan dipasang dengan ahli. Master Stainless memahami kebutuhan produksi kami sejak awal." },
+  { name: "Daniel Brooks", role: "Manajer Pabrik, Northfield Foods", quote: "Kokoh, aman untuk pangan, dan dipasang dengan ahli. Exotic Stainless memahami kebutuhan produksi kami sejak awal." },
 ];
 
 export const CERTIFICATIONS = [
@@ -366,7 +365,7 @@ export const BLOG: BlogPost[] = [
     image: lab,
     date: "12 Jun 2026",
     isoDate: "2026-06-12",
-    author: "Tim Rekayasa Master Stainless",
+    author: "Tim Rekayasa Exotic Stainless",
     readTime: "5 menit baca",
     body: [
       {
@@ -442,7 +441,7 @@ export const BLOG: BlogPost[] = [
     image: handrails,
     date: "09 Mei 2026",
     isoDate: "2026-05-09",
-    author: "Studio Desain Master Stainless",
+    author: "Studio Desain Exotic Stainless",
     readTime: "4 menit baca",
     body: [
       {
@@ -472,7 +471,6 @@ export const BLOG: BlogPost[] = [
     ],
   },
 ];
-
 
 export const FAQS = [
   { q: "Grade stainless steel apa saja yang Anda kerjakan?", a: "Kami mengerjakan semua grade arsitektural dan industri umum, termasuk 304 dan 316/316L, serta paduan khusus atas permintaan." },
