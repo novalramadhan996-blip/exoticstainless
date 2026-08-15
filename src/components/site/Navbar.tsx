@@ -46,7 +46,7 @@ export function Navbar() {
           <img
             src={logoMark}
             alt={`Logo ${COMPANY.name}`}
-            className="h-12 w-12 rounded-xl object-cover drop-shadow"
+            className="h-12 w-12 object-contain drop-shadow"
             loading="eager"
             decoding="async"
           />
@@ -55,7 +55,7 @@ export function Navbar() {
               solid ? "text-foreground" : "text-primary-foreground"
             }`}
           >
-            Exotic<span className="text-accent"> Stainless</span>
+            Exotic<span className="text-muted-foreground"> Stainless</span>
           </span>
         </Link>
 
