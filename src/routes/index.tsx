@@ -16,9 +16,9 @@ import { SITE_URL, absoluteUrl } from "@/lib/seo";
 import project1 from "@/assets/project-samples/project-1.webp";
 
 const OG_IMAGE = absoluteUrl(project1);
-const TITLE = "Master Stainless | Fabrikasi Stainless Steel Jabodetabek";
+const TITLE = "Exotic Stainless | Fabrikasi Stainless Steel Jabodetabek";
 const DESCRIPTION =
-  "Jasa fabrikasi stainless steel custom di Jabodetabek untuk pagar, railing, pintu, peralatan, serta kebutuhan proyek komersial dan industri.";
+  "Exotic Stainless melayani fabrikasi stainless steel custom di Jabodetabek untuk pagar, railing, pintu, peralatan, serta kebutuhan proyek rumah, komersial, dan industri.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -29,7 +29,7 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: DESCRIPTION },
       { property: "og:url", content: `${SITE_URL}/` },
       { property: "og:image", content: OG_IMAGE },
-      { property: "og:image:alt", content: "Hasil fabrikasi stainless steel Master Stainless Jabodetabek" },
+      { property: "og:image:alt", content: "Hasil fabrikasi stainless steel Exotic Stainless Jabodetabek" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: TITLE },
