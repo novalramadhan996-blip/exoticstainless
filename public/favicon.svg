@@ -1,1 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#111214"/><path d="M12 16 32 36 52 16 32 52Z" fill="none" stroke="#e5e7eb" stroke-width="6"/><path d="M16 25 32 41 48 25" fill="none" stroke="#8b929a" stroke-width="4"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Exotic Stainless">
+  <defs>
+    <linearGradient id="steel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="0.28" stop-color="#737980"/>
+      <stop offset="0.5" stop-color="#ffffff"/>
+      <stop offset="0.72" stop-color="#4b5056"/>
+      <stop offset="1" stop-color="#dfe3e7"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="2" stdDeviation="1.5" flood-color="#000" flood-opacity=".65"/>
+    </filter>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#0b0e12"/>
+  <g fill="url(#steel)" filter="url(#shadow)" stroke-linejoin="miter">
+    <path d="M12 15 L32 35 L52 15 L46 15 L32 29 L18 15 Z"/>
+    <path d="M10 25 L32 47 L54 25 L50 25 L32 43 L14 25 Z" opacity=".9"/>
+    <path d="M28 35 L32 31 L36 35 L32 39 Z" fill="#24272b"/>
+    <path d="M28 43 L32 47 L36 43 L42 49 L32 59 L22 49 Z"/>
+  </g>
+</svg>
