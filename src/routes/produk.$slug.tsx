@@ -15,11 +15,11 @@ export const Route = createFileRoute("/produk/$slug")({
   },
   head: ({ params, loaderData }) => {
     if (!loaderData) {
-      return { meta: [{ title: "Produk Tidak Ditemukan — Master Stainless" }, { name: "robots", content: "noindex, follow" }] };
+      return { meta: [{ title: "Produk Tidak Ditemukan — Exotic Stainless" }, { name: "robots", content: "noindex, follow" }] };
     }
     const { product } = loaderData;
-    const title = `${product.title} Stainless Steel Custom | Master Stainless`;
-    const description = `${product.description} Dikerjakan secara custom untuk kebutuhan proyek di Bekasi dan Jawa Barat.`;
+    const title = `${product.title} Stainless Steel Custom | Exotic Stainless`;
+    const description = `${product.description} Dikerjakan secara custom untuk kebutuhan proyek di Jabodetabek.`;
     const url = `${SITE_URL}/produk/${params.slug}`;
     const image = absoluteUrl(product.image);
     return {
@@ -32,7 +32,7 @@ export const Route = createFileRoute("/produk/$slug")({
         { property: "og:type", content: "product" },
         { property: "og:url", content: url },
         { property: "og:image", content: image },
-        { property: "og:image:alt", content: `${product.title} stainless steel custom Master Stainless` },
+        { property: "og:image:alt", content: `${product.title} stainless steel custom Exotic Stainless` },
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:title", content: title },
         { name: "twitter:description", content: description },
@@ -53,9 +53,9 @@ export const Route = createFileRoute("/produk/$slug")({
               url,
               sku: params.slug,
               category: "Fabrikasi Stainless Steel",
-              brand: { "@type": "Brand", name: "Master Stainless" },
-              manufacturer: { "@type": "Organization", name: "Master Stainless", url: SITE_URL },
-              areaServed: ["Bekasi", "Jawa Barat"],
+              brand: { "@type": "Brand", name: "Exotic Stainless" },
+              manufacturer: { "@type": "Organization", name: "Exotic Stainless", url: SITE_URL },
+              areaServed: ["Jakarta", "Bogor", "Depok", "Tangerang", "Bekasi"],
               additionalProperty: product.specs.map((s) => ({ "@type": "PropertyValue", name: s.label, value: s.value })),
             },
             {
@@ -104,7 +104,7 @@ function ProductDetail() {
               <figure className="overflow-hidden rounded-3xl shadow-elevated">
                 <img
                   src={product.image}
-                  alt={`${product.title} — produk stainless steel custom hasil fabrikasi Master Stainless di Bekasi`}
+                  alt={`${product.title} — produk stainless steel custom hasil fabrikasi Exotic Stainless di Jabodetabek`}
                   width={1200}
                   height={900}
                   loading="eager"
