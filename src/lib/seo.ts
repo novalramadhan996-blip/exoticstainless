@@ -1,7 +1,8 @@
-export const SITE_URL = "https://masterstainless.com";
+export const SITE_URL = (import.meta.env.VITE_SITE_URL || (typeof window !== "undefined" ? window.location.origin : "")).replace(/\/$/, "");
 
-/** Ubah path aset lokal menjadi URL absolut untuk SEO/social cards. */
+/** Mengubah path aset lokal menjadi URL absolut tanpa pernah mewarisi domain brand lain. */
 export function absoluteUrl(pathOrUrl: string) {
   if (/^https?:\/\//.test(pathOrUrl)) return pathOrUrl;
-  return `${SITE_URL}${pathOrUrl.startsWith("/") ? "" : "/"}${pathOrUrl}`;
+  const path = pathOrUrl.startsWith("/") ? pathOrUrl : `/${pathOrUrl}`;
+  return SITE_URL ? `${SITE_URL}${path}` : path;
 }
