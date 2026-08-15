@@ -34,13 +34,13 @@ const IMAGES = [
   { src: project12, title: "Fabrikasi Stainless Custom" },
 ].map((image) => ({
   ...image,
-  alt: `${image.title} hasil fabrikasi Master Stainless`,
+  alt: `${image.title} hasil fabrikasi Exotic Stainless`,
 }));
 
 const OG_IMAGE = absoluteUrl(IMAGES[0].src);
-const TITLE = "Galeri Fabrikasi Stainless Steel | Master Stainless";
+const TITLE = "Galeri Fabrikasi Stainless Steel | Exotic Stainless";
 const DESCRIPTION =
-  "Lihat galeri hasil pekerjaan Master Stainless: pagar, railing tangga, railing balkon, pintu, kanopi, dan fabrikasi stainless steel custom.";
+  "Lihat galeri hasil pekerjaan Exotic Stainless: pagar, railing tangga, railing balkon, pintu, kanopi, dan fabrikasi stainless steel custom.";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
@@ -51,7 +51,7 @@ export const Route = createFileRoute("/gallery")({
       { property: "og:description", content: DESCRIPTION },
       { property: "og:url", content: `${SITE_URL}/gallery` },
       { property: "og:image", content: OG_IMAGE },
-      { property: "og:image:alt", content: "Galeri proyek fabrikasi stainless steel Master Stainless" },
+      { property: "og:image:alt", content: "Galeri proyek fabrikasi stainless steel Exotic Stainless" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: TITLE },
       { name: "twitter:description", content: DESCRIPTION },
@@ -64,7 +64,7 @@ export const Route = createFileRoute("/gallery")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "ImageGallery",
-          name: "Galeri Fabrikasi Stainless Steel Master Stainless",
+          name: "Galeri Fabrikasi Stainless Steel Exotic Stainless",
           description: DESCRIPTION,
           url: `${SITE_URL}/gallery`,
           inLanguage: "id-ID",
@@ -88,7 +88,7 @@ function GalleryPage() {
     <>
       <PageHeader
         eyebrow="Galeri Proyek"
-        title="Hasil Pekerjaan Master Stainless"
+        title="Hasil Pekerjaan Exotic Stainless"
         subtitle="Koleksi hasil fabrikasi stainless steel untuk pagar, railing, pintu, kanopi, dan kebutuhan custom lainnya."
       />
 
@@ -143,7 +143,7 @@ function GalleryPage() {
               initial={{ scale: 0.9 }}
               animate={{ scale: 1 }}
               src={active}
-              alt="Pratinjau galeri proyek Master Stainless"
+              alt="Pratinjau galeri proyek Exotic Stainless"
               onClick={(event) => event.stopPropagation()}
               className="max-h-[85vh] max-w-full rounded-2xl object-contain shadow-elevated"
             />
