@@ -15,13 +15,13 @@ export function LoadingScreen() {
         <motion.div
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5 }}
-          className="fixed inset-0 z-[100] grid place-items-center bg-primary"
+          className="fixed inset-0 z-[100] grid place-items-center bg-white"
         >
           <div className="flex flex-col items-center gap-5">
             <motion.div
               animate={{ scale: [0.96, 1, 0.96], opacity: [0.85, 1, 0.85] }}
               transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
-              className="grid h-20 w-20 place-items-center rounded-2xl border border-primary-foreground/20 bg-primary-foreground/5 p-3 shadow-elevated"
+              className="grid h-20 w-20 place-items-center rounded-2xl border border-slate-200 bg-white p-3 shadow-lg"
             >
               <img
                 src={logoMark}
@@ -31,9 +31,17 @@ export function LoadingScreen() {
                 decoding="async"
               />
             </motion.div>
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-primary-foreground/80">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-800">
               Exotic Stainless
             </p>
+            <div className="h-1 w-24 overflow-hidden rounded-full bg-slate-200">
+              <motion.div
+                className="h-full rounded-full bg-gradient-to-r from-blue-600 to-cyan-400"
+                initial={{ x: "-100%" }}
+                animate={{ x: "0%" }}
+                transition={{ duration: 1, ease: "easeOut" }}
+              />
+            </div>
           </div>
         </motion.div>
       )}
