@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2, Crosshair, ShieldCheck, Sparkles, ThumbsUp, Users, Wrench } from "lucide-react";
+import { ArrowRight, CheckCircle2, Crosshair, ShieldCheck, ThumbsUp, Users, Wrench } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import project1 from "@/assets/project-samples/project-1.webp";
 
