@@ -64,8 +64,8 @@ export function Hero() {
 
             {floatingCards.map((card, i) => (
               <motion.div key={card.label} className={`absolute ${card.className} flex items-center gap-3 rounded-2xl border border-[#dce6f0] bg-white px-5 py-4 shadow-[0_16px_38px_-12px_rgba(16,35,63,0.22)]`} initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.45 + i * 0.12, duration: 0.5 }}>
-                <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-[#e8f1ff]">
-                  <card.icon className="h-6 w-6 text-[#1268ff]" />
+                <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-primary">
+                  <card.icon className="h-6 w-6 text-primary-foreground" />
                 </span>
                 <div>
                   <p className="text-[19px] font-extrabold leading-tight text-[#101010]">{card.value}</p>
@@ -79,8 +79,8 @@ export function Hero() {
         <div className="mt-10 grid overflow-hidden rounded-[26px] border border-[#e1edf8] bg-[#f5f9ff] shadow-[0_12px_35px_-20px_rgba(16,35,63,0.18)] sm:grid-cols-2 lg:grid-cols-4">
           {benefits.map((benefit, index) => (
             <div key={benefit.title} className={`flex items-center gap-5 px-7 py-6 lg:py-7 ${index > 0 ? "border-t border-[#cfe0f5] sm:border-l sm:border-t-0" : ""}`}>
-              <span className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-[#e3efff]">
-                <benefit.icon className="h-7 w-7 text-[#1268ff]" />
+              <span className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-primary">
+                <benefit.icon className="h-7 w-7 text-primary-foreground" />
               </span>
               <div>
                 <h2 className="text-[16px] font-extrabold text-[#14264a]">{benefit.title}</h2>

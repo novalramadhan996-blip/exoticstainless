@@ -9,7 +9,7 @@ export function Stats() {
           {STATS.map((stat, i) => (
             <Reveal key={stat.label} delay={i * 0.1}>
               <div className="text-center">
-                <p className="text-4xl font-extrabold text-gradient-gold sm:text-5xl">
+                <p className="text-4xl font-extrabold text-primary-foreground sm:text-5xl">
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                 </p>
                 <p className="mt-2 text-sm font-medium uppercase tracking-wider text-primary-foreground/70">

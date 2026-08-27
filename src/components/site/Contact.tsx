@@ -90,7 +90,7 @@ export function Contact() {
                     key={item.label}
                     className="rounded-2xl border border-border bg-surface p-5 shadow-soft"
                   >
-                    <span className="grid h-11 w-11 place-items-center rounded-xl bg-gradient-gold text-primary">
+                    <span className="grid h-11 w-11 place-items-center rounded-xl bg-gradient-gold text-primary-foreground">
                       <item.icon className="h-5 w-5" />
                     </span>
                     <p className="mt-3 text-sm font-bold text-foreground">{item.label}</p>

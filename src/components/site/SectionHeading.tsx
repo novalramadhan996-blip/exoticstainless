@@ -24,7 +24,7 @@ export function SectionHeading({
       )}
       <h2
         className={`mt-4 text-3xl font-extrabold sm:text-4xl md:text-5xl ${
-          light ? "text-primary-foreground" : "text-foreground"
+          light ? "text-overlay-foreground" : "text-foreground"
         }`}
       >
         {title}
@@ -32,7 +32,7 @@ export function SectionHeading({
       {description && (
         <p
           className={`mt-4 text-base leading-relaxed sm:text-lg ${
-            light ? "text-primary-foreground/70" : "text-muted-foreground"
+            light ? "text-overlay-foreground/70" : "text-muted-foreground"
           }`}
         >
           {description}

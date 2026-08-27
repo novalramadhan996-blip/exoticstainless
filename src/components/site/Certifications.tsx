@@ -18,7 +18,7 @@ export function Certifications() {
             return (
               <Reveal key={cert.title} delay={i * 0.08}>
                 <div className="flex h-full flex-col items-center rounded-2xl border border-border bg-card p-8 text-center shadow-soft">
-                  <span className="grid h-16 w-16 place-items-center rounded-full bg-primary text-accent">
+                  <span className="grid h-16 w-16 place-items-center rounded-full bg-primary text-primary-foreground">
                     {Icon && <Icon className="h-8 w-8" />}
                   </span>
                   <h3 className="mt-4 text-lg font-bold text-foreground">{cert.title}</h3>

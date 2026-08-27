@@ -138,7 +138,7 @@ function ProductDetail() {
                 <ul className="mt-5 space-y-3">
                   {product.features.map((f) => (
                     <li key={f} className="flex items-start gap-3 text-sm text-muted-foreground">
-                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent/15 text-accent"><Check className="h-3 w-3" /></span>
+                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground"><Check className="h-3 w-3" /></span>
                       {f}
                     </li>
                   ))}

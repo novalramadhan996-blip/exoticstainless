@@ -45,13 +45,13 @@ export function WhyChooseUs() {
               <Reveal key={item.title} delay={(i % 4) * 0.08}>
                 <motion.div
                   whileHover={{ y: -6 }}
-                  className="flex h-full flex-col items-center rounded-2xl border border-primary-foreground/10 bg-primary-foreground/5 p-6 text-center backdrop-blur"
+                  className="flex h-full flex-col items-center rounded-2xl border border-overlay-foreground/10 bg-overlay-foreground/5 p-6 text-center backdrop-blur"
                 >
-                  <span className="grid h-16 w-16 place-items-center rounded-2xl bg-gradient-gold text-primary shadow-gold">
+                  <span className="grid h-16 w-16 place-items-center rounded-2xl bg-gradient-gold text-primary-foreground shadow-gold">
                     <Icon className="h-8 w-8" />
                   </span>
-                  <h3 className="mt-4 text-base font-bold text-primary-foreground">{item.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-primary-foreground/75">{item.description}</p>
+                  <h3 className="mt-4 text-base font-bold text-overlay-foreground">{item.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-overlay-foreground/75">{item.description}</p>
                 </motion.div>
               </Reveal>
             );

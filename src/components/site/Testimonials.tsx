@@ -43,7 +43,7 @@ export function Testimonials() {
                   “{t.quote}”
                 </p>
                 <div className="mt-6 flex items-center justify-center gap-3">
-                  <span className="grid h-12 w-12 place-items-center rounded-full bg-gradient-gold text-lg font-bold text-primary">
+                  <span className="grid h-12 w-12 place-items-center rounded-full bg-gradient-gold text-lg font-bold text-primary-foreground">
                     {t.name.charAt(0)}
                   </span>
                   <div className="text-left">

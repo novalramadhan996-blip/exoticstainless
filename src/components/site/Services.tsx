@@ -65,7 +65,7 @@ export function Services() {
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
                   className="group h-full rounded-2xl border border-border bg-card p-6 shadow-soft transition-shadow hover:shadow-elevated"
                 >
-                  <span className="grid h-14 w-14 place-items-center rounded-2xl bg-primary text-accent transition-colors group-hover:bg-gradient-gold group-hover:text-primary">
+                  <span className="grid h-14 w-14 place-items-center rounded-2xl bg-primary text-primary-foreground transition-colors group-hover:bg-gradient-gold group-hover:text-primary-foreground">
                     {Icon && <Icon className="h-7 w-7" />}
                   </span>
                   <h3 className="mt-5 text-lg font-bold text-foreground">{service.title}</h3>

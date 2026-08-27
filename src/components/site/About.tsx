@@ -29,8 +29,8 @@ export function About() {
                 />
               </div>
               <div className="absolute -bottom-6 -right-4 hidden rounded-2xl bg-gradient-gold px-6 py-5 shadow-gold sm:block">
-                <p className="text-3xl font-extrabold text-primary">Custom</p>
-                <p className="text-sm font-medium text-primary/80">Sesuai Kebutuhan Proyek</p>
+                <p className="text-3xl font-extrabold text-primary-foreground">Custom</p>
+                <p className="text-sm font-medium text-primary-foreground/80">Sesuai Kebutuhan Proyek</p>
               </div>
             </div>
           </Reveal>
@@ -72,7 +72,7 @@ export function About() {
               {features.map((f, i) => (
                 <Reveal key={f.label} delay={0.1 + i * 0.08}>
                   <div className="flex items-center gap-3">
-                    <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-accent/10 text-accent">
+                    <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-primary text-primary-foreground">
                       <f.icon className="h-5 w-5" />
                     </span>
                     <span className="text-sm font-semibold text-foreground">{f.label}</span>

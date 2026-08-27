@@ -40,7 +40,7 @@ export function Process() {
                   }`}
                 >
                   <span
-                    className={`relative z-10 grid h-12 w-12 shrink-0 place-items-center rounded-full bg-gradient-gold text-lg font-extrabold text-primary shadow-gold ${
+                    className={`relative z-10 grid h-12 w-12 shrink-0 place-items-center rounded-full bg-gradient-gold text-lg font-extrabold text-primary-foreground shadow-gold ${
                       i % 2 === 0 ? "lg:-ml-18" : "lg:-mr-18"
                     }`}
                   >
