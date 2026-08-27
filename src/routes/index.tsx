@@ -16,21 +16,27 @@ import { SITE_URL, absoluteUrl } from "@/lib/seo";
 import project1 from "@/assets/project-samples/project-1.webp";
 
 const OG_IMAGE = absoluteUrl(project1);
-const TITLE = "Exotic Stainless | Fabrikasi Stainless Steel Jabodetabek";
+const TITLE = "Fabrikasi Stainless Steel Jabodetabek | Exotic Stainless";
 const DESCRIPTION =
-  "Exotic Stainless melayani fabrikasi stainless steel custom di Jabodetabek untuk pagar, railing, pintu, peralatan, serta kebutuhan proyek rumah, komersial, dan industri.";
+  "Jasa fabrikasi stainless steel custom di Jabodetabek. Exotic Stainless mengerjakan railing, pagar, gerbang, pintu, peralatan stainless, rak, dan kebutuhan proyek rumah, komersial, hingga industri.";
+const KEYWORDS =
+  "fabrikasi stainless steel Jabodetabek, jasa stainless steel Jabodetabek, stainless steel custom, railing stainless steel, railing tangga, railing balkon, pagar stainless steel, gerbang stainless steel, pintu stainless steel, peralatan dapur stainless, rak stainless, Exotic Stainless";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: TITLE },
       { name: "description", content: DESCRIPTION },
+      { name: "keywords", content: KEYWORDS },
+      { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESCRIPTION },
       { property: "og:url", content: `${SITE_URL}/` },
       { property: "og:image", content: OG_IMAGE },
-      { property: "og:image:alt", content: "Hasil fabrikasi stainless steel Exotic Stainless Jabodetabek" },
+      { property: "og:image:alt", content: "Proyek fabrikasi stainless steel custom Exotic Stainless di Jabodetabek" },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Exotic Stainless" },
+      { property: "og:locale", content: "id_ID" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: TITLE },
       { name: "twitter:description", content: DESCRIPTION },
